@@ -218,12 +218,41 @@ public class userInfo
 	public string(10) userPhoneNumber
 }
 
+/*
+CREATE TABLE `userplaylist` (
+  `userplaylistID` int(11) NOT NULL AUTO_INCREMENT,
+  `userplaylistNAME` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`userplaylistID`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+*/
 
+[Table(Name="userplaylist")]
+public class userPlaylist
+{
+	[Column(Id=true)(isPrimarykey=true)]
+	public int(11) userplaylistID
+	[Column]
+	public string(45) userplaylistNAME
+}
 
+/*
+CREATE TABLE `userpurchases` (
+  `userPurchasesID` int(11) NOT NULL AUTO_INCREMENT,
+  `idSongInfo` int(11) DEFAULT NULL,
+  PRIMARY KEY (`userPurchasesID`),
+  KEY `idSongInfo_idx` (`idSongInfo`),
+  CONSTRAINT `idSongInfo` FOREIGN KEY (`idSongInfo`) REFERENCES `songinfo` (`idSongInfo`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+*/
 
+[Table(Name="userpurchases")]
+public class userPurchases
+{
+	[Column(Id=true)(isPrimarykey=true)]
+	public int(11) userplaylistID
+	[Column(Id=true)]
+	public string(45) userplaylistNAME
 
-
-
-
+}
 
 
