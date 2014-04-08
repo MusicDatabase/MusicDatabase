@@ -1,1 +1,2 @@
 C:\Users\Zigmyal\Documents\GitHub\MusicDatabase\backleft_music_UI\backleft_music_UI\bin\Debug\backleft_music_UI.exe.config
+C:\Users\joseph.caruso\Documents\GitHub\MusicDatabase\backleft_music_UI\backleft_music_UI\bin\Debug\backleft_music_UI.exe.config
