@@ -1,2 +1,11 @@
 C:\Users\Zigmyal\Documents\GitHub\MusicDatabase\backleft_music_UI\backleft_music_UI\bin\Debug\backleft_music_UI.exe.config
 C:\Users\joseph.caruso\Documents\GitHub\MusicDatabase\backleft_music_UI\backleft_music_UI\bin\Debug\backleft_music_UI.exe.config
+C:\Users\James.Peck\Documents\GitHub\MusicDatabase\backleft_music_UI\backleft_music_UI\bin\Debug\backleft_music_UI.exe.config
+C:\Users\James.Peck\Documents\GitHub\MusicDatabase\backleft_music_UI\backleft_music_UI\bin\Debug\backleft_music_UI.exe
+C:\Users\James.Peck\Documents\GitHub\MusicDatabase\backleft_music_UI\backleft_music_UI\bin\Debug\backleft_music_UI.pdb
+C:\Users\James.Peck\Documents\GitHub\MusicDatabase\backleft_music_UI\backleft_music_UI\obj\Debug\backleft_music_UI.csprojResolveAssemblyReference.cache
+C:\Users\James.Peck\Documents\GitHub\MusicDatabase\backleft_music_UI\backleft_music_UI\obj\Debug\backleft_music_UI.libForm.resources
+C:\Users\James.Peck\Documents\GitHub\MusicDatabase\backleft_music_UI\backleft_music_UI\obj\Debug\backleft_music_UI.Properties.Resources.resources
+C:\Users\James.Peck\Documents\GitHub\MusicDatabase\backleft_music_UI\backleft_music_UI\obj\Debug\backleft_music_UI.csproj.GenerateResource.Cache
+C:\Users\James.Peck\Documents\GitHub\MusicDatabase\backleft_music_UI\backleft_music_UI\obj\Debug\backleft_music_UI.exe
+C:\Users\James.Peck\Documents\GitHub\MusicDatabase\backleft_music_UI\backleft_music_UI\obj\Debug\backleft_music_UI.pdb
