@@ -9,3 +9,5 @@ C:\Users\James.Peck\Documents\GitHub\MusicDatabase\backleft_music_UI\backleft_mu
 C:\Users\James.Peck\Documents\GitHub\MusicDatabase\backleft_music_UI\backleft_music_UI\obj\Debug\backleft_music_UI.csproj.GenerateResource.Cache
 C:\Users\James.Peck\Documents\GitHub\MusicDatabase\backleft_music_UI\backleft_music_UI\obj\Debug\backleft_music_UI.exe
 C:\Users\James.Peck\Documents\GitHub\MusicDatabase\backleft_music_UI\backleft_music_UI\obj\Debug\backleft_music_UI.pdb
+C:\Users\joseph.caruso\Documents\GitHub\MusicDatabase\backleft_music_UI\backleft_music_UI\obj\Debug\backleft_music_UI.exe
+C:\Users\joseph.caruso\Documents\GitHub\MusicDatabase\backleft_music_UI\backleft_music_UI\obj\Debug\backleft_music_UI.pdb
