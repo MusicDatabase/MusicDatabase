@@ -19,6 +19,10 @@ namespace backleft_music_UI
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'mydbDataSet.userpurchases' table. You can move, or remove it, as needed.
+            this.userpurchasesTableAdapter.Fill(this.mydbDataSet.userpurchases);
+            // TODO: This line of code loads data into the 'mydbDataSet.userplaylist' table. You can move, or remove it, as needed.
+            this.userplaylistTableAdapter.Fill(this.mydbDataSet.userplaylist);
             // TODO: This line of code loads data into the 'mydbDataSet.songinfo' table. You can move, or remove it, as needed.
             this.songinfoTableAdapter.Fill(this.mydbDataSet.songinfo);
             // TODO: This line of code loads data into the 'mydbDataSet.playlist_song' table. You can move, or remove it, as needed.
@@ -71,7 +75,9 @@ namespace backleft_music_UI
 
         private void songinfoDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-
+            // Open form 2
+            var form = new form2();
+            form.Show();
         }
     }
 }

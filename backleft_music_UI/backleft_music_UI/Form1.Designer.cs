@@ -47,6 +47,10 @@
             this.songinfoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.songinfoTableAdapter = new backleft_music_UI.mydbDataSetTableAdapters.songinfoTableAdapter();
             this.songinfoDataGridView = new System.Windows.Forms.DataGridView();
+            this.userplaylistBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.userplaylistTableAdapter = new backleft_music_UI.mydbDataSetTableAdapters.userplaylistTableAdapter();
+            this.userpurchasesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.userpurchasesTableAdapter = new backleft_music_UI.mydbDataSetTableAdapters.userpurchasesTableAdapter();
             this.col1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -58,12 +62,15 @@
             this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.buy = new System.Windows.Forms.DataGridViewButtonColumn();
             this.tabControl.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.mydbDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.playlist_songBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.songinfoBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.songinfoDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.userplaylistBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.userpurchasesBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl
@@ -73,7 +80,7 @@
             this.tabControl.Location = new System.Drawing.Point(12, 35);
             this.tabControl.Name = "tabControl";
             this.tabControl.SelectedIndex = 0;
-            this.tabControl.Size = new System.Drawing.Size(791, 374);
+            this.tabControl.Size = new System.Drawing.Size(882, 374);
             this.tabControl.TabIndex = 0;
             // 
             // tabPage1
@@ -83,7 +90,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(783, 348);
+            this.tabPage1.Size = new System.Drawing.Size(874, 348);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Store";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -91,10 +98,11 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.AutoScroll = true;
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(595, 348);
+            this.tabPage2.Size = new System.Drawing.Size(783, 348);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Music";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -195,8 +203,8 @@
             this.tableAdapterManager.useraddressTableAdapter = null;
             this.tableAdapterManager.usercreditcardinfoTableAdapter = null;
             this.tableAdapterManager.userinfoTableAdapter = null;
-            this.tableAdapterManager.userplaylistTableAdapter = null;
-            this.tableAdapterManager.userpurchasesTableAdapter = null;
+            this.tableAdapterManager.userplaylistTableAdapter = this.userplaylistTableAdapter;
+            this.tableAdapterManager.userpurchasesTableAdapter = this.userpurchasesTableAdapter;
             // 
             // songinfoBindingSource
             // 
@@ -222,13 +230,32 @@
             this.dataGridViewTextBoxColumn8,
             this.dataGridViewTextBoxColumn9,
             this.dataGridViewTextBoxColumn10,
-            this.dataGridViewTextBoxColumn11});
+            this.dataGridViewTextBoxColumn11,
+            this.buy});
             this.songinfoDataGridView.DataSource = this.songinfoBindingSource;
             this.songinfoDataGridView.Location = new System.Drawing.Point(0, 0);
             this.songinfoDataGridView.Name = "songinfoDataGridView";
-            this.songinfoDataGridView.Size = new System.Drawing.Size(779, 345);
+            this.songinfoDataGridView.Size = new System.Drawing.Size(878, 345);
             this.songinfoDataGridView.TabIndex = 0;
             this.songinfoDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.songinfoDataGridView_CellContentClick);
+            // 
+            // userplaylistBindingSource
+            // 
+            this.userplaylistBindingSource.DataMember = "userplaylist";
+            this.userplaylistBindingSource.DataSource = this.mydbDataSet;
+            // 
+            // userplaylistTableAdapter
+            // 
+            this.userplaylistTableAdapter.ClearBeforeFill = true;
+            // 
+            // userpurchasesBindingSource
+            // 
+            this.userpurchasesBindingSource.DataMember = "userpurchases";
+            this.userpurchasesBindingSource.DataSource = this.mydbDataSet;
+            // 
+            // userpurchasesTableAdapter
+            // 
+            this.userpurchasesTableAdapter.ClearBeforeFill = true;
             // 
             // col1
             // 
@@ -268,11 +295,12 @@
             this.dataGridViewTextBoxColumn6.DataPropertyName = "Location";
             this.dataGridViewTextBoxColumn6.HeaderText = "Location";
             this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            this.dataGridViewTextBoxColumn6.Width = 50;
             // 
             // dataGridViewTextBoxColumn7
             // 
             this.dataGridViewTextBoxColumn7.DataPropertyName = "AlbumTrack";
-            this.dataGridViewTextBoxColumn7.HeaderText = "AlbumTrack";
+            this.dataGridViewTextBoxColumn7.HeaderText = "#";
             this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
             this.dataGridViewTextBoxColumn7.Width = 20;
             // 
@@ -292,9 +320,9 @@
             // dataGridViewTextBoxColumn10
             // 
             this.dataGridViewTextBoxColumn10.DataPropertyName = "PlayCount";
-            this.dataGridViewTextBoxColumn10.HeaderText = "PlayCount";
+            this.dataGridViewTextBoxColumn10.HeaderText = "Play Count";
             this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
-            this.dataGridViewTextBoxColumn10.Width = 25;
+            this.dataGridViewTextBoxColumn10.Width = 90;
             // 
             // dataGridViewTextBoxColumn11
             // 
@@ -303,11 +331,21 @@
             this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
             this.dataGridViewTextBoxColumn11.Width = 40;
             // 
+            // buy
+            // 
+            this.buy.HeaderText = "Transaction";
+            this.buy.Name = "buy";
+            this.buy.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.buy.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.buy.Text = "Buy";
+            this.buy.UseColumnTextForButtonValue = true;
+            this.buy.Width = 70;
+            // 
             // libForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(812, 454);
+            this.ClientSize = new System.Drawing.Size(921, 454);
             this.Controls.Add(this.nameLabel);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.removeButton);
@@ -326,6 +364,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.playlist_songBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.songinfoBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.songinfoDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.userplaylistBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.userpurchasesBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -351,6 +391,10 @@
         private mydbDataSetTableAdapters.songinfoTableAdapter songinfoTableAdapter;
         private System.Windows.Forms.BindingSource songinfoBindingSource;
         private System.Windows.Forms.DataGridView songinfoDataGridView;
+        private mydbDataSetTableAdapters.userplaylistTableAdapter userplaylistTableAdapter;
+        private System.Windows.Forms.BindingSource userplaylistBindingSource;
+        private mydbDataSetTableAdapters.userpurchasesTableAdapter userpurchasesTableAdapter;
+        private System.Windows.Forms.BindingSource userpurchasesBindingSource;
         private System.Windows.Forms.DataGridViewCheckBoxColumn col1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
@@ -362,6 +406,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn11;
+        private System.Windows.Forms.DataGridViewButtonColumn buy;
     }
 }
 
