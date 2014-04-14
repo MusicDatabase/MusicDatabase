@@ -47,7 +47,7 @@
             this.songinfoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.songinfoTableAdapter = new backleft_music_UI.mydbDataSetTableAdapters.songinfoTableAdapter();
             this.songinfoDataGridView = new System.Windows.Forms.DataGridView();
-            this.col1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.col1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -73,7 +73,7 @@
             this.tabControl.Location = new System.Drawing.Point(12, 35);
             this.tabControl.Name = "tabControl";
             this.tabControl.SelectedIndex = 0;
-            this.tabControl.Size = new System.Drawing.Size(603, 374);
+            this.tabControl.Size = new System.Drawing.Size(791, 374);
             this.tabControl.TabIndex = 0;
             // 
             // tabPage1
@@ -83,7 +83,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(595, 348);
+            this.tabPage1.Size = new System.Drawing.Size(783, 348);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Store";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -101,7 +101,7 @@
             // 
             // storeButton
             // 
-            this.storeButton.Location = new System.Drawing.Point(540, 7);
+            this.storeButton.Location = new System.Drawing.Point(724, 7);
             this.storeButton.Name = "storeButton";
             this.storeButton.Size = new System.Drawing.Size(75, 23);
             this.storeButton.TabIndex = 1;
@@ -113,13 +113,13 @@
             // 
             this.textBox1.Location = new System.Drawing.Point(12, 418);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(213, 20);
+            this.textBox1.Size = new System.Drawing.Size(368, 20);
             this.textBox1.TabIndex = 2;
             this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // createButton
             // 
-            this.createButton.Location = new System.Drawing.Point(231, 416);
+            this.createButton.Location = new System.Drawing.Point(386, 419);
             this.createButton.Name = "createButton";
             this.createButton.Size = new System.Drawing.Size(75, 23);
             this.createButton.TabIndex = 3;
@@ -130,14 +130,14 @@
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(312, 418);
+            this.comboBox1.Location = new System.Drawing.Point(467, 421);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(141, 21);
+            this.comboBox1.Size = new System.Drawing.Size(170, 21);
             this.comboBox1.TabIndex = 4;
             // 
             // addButton
             // 
-            this.addButton.Location = new System.Drawing.Point(459, 416);
+            this.addButton.Location = new System.Drawing.Point(643, 419);
             this.addButton.Name = "addButton";
             this.addButton.Size = new System.Drawing.Size(75, 23);
             this.addButton.TabIndex = 5;
@@ -146,7 +146,7 @@
             // 
             // removeButton
             // 
-            this.removeButton.Location = new System.Drawing.Point(540, 416);
+            this.removeButton.Location = new System.Drawing.Point(724, 419);
             this.removeButton.Name = "removeButton";
             this.removeButton.Size = new System.Drawing.Size(75, 23);
             this.removeButton.TabIndex = 6;
@@ -155,7 +155,7 @@
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(312, 9);
+            this.textBox2.Location = new System.Drawing.Point(496, 9);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(222, 20);
             this.textBox2.TabIndex = 7;
@@ -226,7 +226,7 @@
             this.songinfoDataGridView.DataSource = this.songinfoBindingSource;
             this.songinfoDataGridView.Location = new System.Drawing.Point(0, 0);
             this.songinfoDataGridView.Name = "songinfoDataGridView";
-            this.songinfoDataGridView.Size = new System.Drawing.Size(586, 339);
+            this.songinfoDataGridView.Size = new System.Drawing.Size(779, 345);
             this.songinfoDataGridView.TabIndex = 0;
             this.songinfoDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.songinfoDataGridView_CellContentClick);
             // 
@@ -234,6 +234,9 @@
             // 
             this.col1.HeaderText = "";
             this.col1.Name = "col1";
+            this.col1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.col1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.col1.Width = 20;
             // 
             // dataGridViewTextBoxColumn2
             // 
@@ -252,6 +255,7 @@
             this.dataGridViewTextBoxColumn4.DataPropertyName = "Genre";
             this.dataGridViewTextBoxColumn4.HeaderText = "Genre";
             this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.Width = 80;
             // 
             // dataGridViewTextBoxColumn5
             // 
@@ -270,12 +274,14 @@
             this.dataGridViewTextBoxColumn7.DataPropertyName = "AlbumTrack";
             this.dataGridViewTextBoxColumn7.HeaderText = "AlbumTrack";
             this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
+            this.dataGridViewTextBoxColumn7.Width = 20;
             // 
             // dataGridViewTextBoxColumn8
             // 
             this.dataGridViewTextBoxColumn8.DataPropertyName = "Year";
             this.dataGridViewTextBoxColumn8.HeaderText = "Year";
             this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
+            this.dataGridViewTextBoxColumn8.Width = 50;
             // 
             // dataGridViewTextBoxColumn9
             // 
@@ -288,18 +294,20 @@
             this.dataGridViewTextBoxColumn10.DataPropertyName = "PlayCount";
             this.dataGridViewTextBoxColumn10.HeaderText = "PlayCount";
             this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
+            this.dataGridViewTextBoxColumn10.Width = 25;
             // 
             // dataGridViewTextBoxColumn11
             // 
             this.dataGridViewTextBoxColumn11.DataPropertyName = "BPM";
             this.dataGridViewTextBoxColumn11.HeaderText = "BPM";
             this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
+            this.dataGridViewTextBoxColumn11.Width = 40;
             // 
             // libForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(627, 454);
+            this.ClientSize = new System.Drawing.Size(812, 454);
             this.Controls.Add(this.nameLabel);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.removeButton);
@@ -343,7 +351,7 @@
         private mydbDataSetTableAdapters.songinfoTableAdapter songinfoTableAdapter;
         private System.Windows.Forms.BindingSource songinfoBindingSource;
         private System.Windows.Forms.DataGridView songinfoDataGridView;
-        private System.Windows.Forms.DataGridViewTextBoxColumn col1;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn col1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;

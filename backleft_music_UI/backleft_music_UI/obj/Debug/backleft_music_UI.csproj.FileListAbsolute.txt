@@ -11,3 +11,12 @@ C:\Users\James.Peck\Documents\GitHub\MusicDatabase\backleft_music_UI\backleft_mu
 C:\Users\James.Peck\Documents\GitHub\MusicDatabase\backleft_music_UI\backleft_music_UI\obj\Debug\backleft_music_UI.pdb
 C:\Users\joseph.caruso\Documents\GitHub\MusicDatabase\backleft_music_UI\backleft_music_UI\obj\Debug\backleft_music_UI.exe
 C:\Users\joseph.caruso\Documents\GitHub\MusicDatabase\backleft_music_UI\backleft_music_UI\obj\Debug\backleft_music_UI.pdb
+C:\Users\joseph.caruso\Documents\GitHub\MusicDatabase\backleft_music_UI\backleft_music_UI\bin\Debug\backleft_music_UI.exe
+C:\Users\joseph.caruso\Documents\GitHub\MusicDatabase\backleft_music_UI\backleft_music_UI\bin\Debug\backleft_music_UI.pdb
+C:\Users\joseph.caruso\Documents\GitHub\MusicDatabase\backleft_music_UI\backleft_music_UI\bin\Debug\EntityFramework.dll
+C:\Users\joseph.caruso\Documents\GitHub\MusicDatabase\backleft_music_UI\backleft_music_UI\bin\Debug\EntityFramework.xml
+C:\Users\joseph.caruso\Documents\GitHub\MusicDatabase\backleft_music_UI\backleft_music_UI\obj\Debug\backleft_music_UI.csprojResolveAssemblyReference.cache
+C:\Users\joseph.caruso\Documents\GitHub\MusicDatabase\backleft_music_UI\backleft_music_UI\obj\Debug\backleft_music_UI.libForm.resources
+C:\Users\joseph.caruso\Documents\GitHub\MusicDatabase\backleft_music_UI\backleft_music_UI\obj\Debug\backleft_music_UI.form2.resources
+C:\Users\joseph.caruso\Documents\GitHub\MusicDatabase\backleft_music_UI\backleft_music_UI\obj\Debug\backleft_music_UI.Properties.Resources.resources
+C:\Users\joseph.caruso\Documents\GitHub\MusicDatabase\backleft_music_UI\backleft_music_UI\obj\Debug\backleft_music_UI.csproj.GenerateResource.Cache
