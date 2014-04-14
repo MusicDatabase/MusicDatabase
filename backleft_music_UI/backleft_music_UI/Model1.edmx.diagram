@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="c11c341a99ba4408878ea0f175cfa0b2" Name="Diagram1">
+        <EntityTypeShape EntityType="mydbModel.songalbum" Width="1.5" PointX="0.75" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="mydbModel.songartist" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="mydbModel.songinfo" Width="1.5" PointX="3" PointY="2.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="mydbModel.useraddress" Width="1.5" PointX="5.25" PointY="8.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="mydbModel.usercreditcardinfo" Width="1.5" PointX="5.25" PointY="11.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="mydbModel.userinfo" Width="1.5" PointX="7.5" PointY="4.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="mydbModel.userplaylist" Width="1.5" PointX="5.25" PointY="2.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="mydbModel.userpurchas" Width="1.5" PointX="5.25" PointY="4.875" IsExpanded="true" />
+        <AssociationConnector Association="mydbModel.songAlbumID" ManuallyRouted="false" />
+        <AssociationConnector Association="mydbModel.songArtist1" ManuallyRouted="false" />
+        <AssociationConnector Association="mydbModel.idSongInfo" ManuallyRouted="false" />
+        <AssociationConnector Association="mydbModel.uerAddID" ManuallyRouted="false" />
+        <AssociationConnector Association="mydbModel.userCreditCardID" ManuallyRouted="false" />
+        <AssociationConnector Association="mydbModel.userPurchasesID" ManuallyRouted="false" />
+        <AssociationConnector Association="mydbModel.playlist_song" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -154,6 +154,7 @@
             this.label11.Size = new System.Drawing.Size(32, 13);
             this.label11.TabIndex = 10;
             this.label11.Text = "(item)";
+            this.label11.Click += new System.EventHandler(this.label11_Click);
             // 
             // label12
             // 

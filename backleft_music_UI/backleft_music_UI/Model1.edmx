@@ -1,10 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
   <!-- EF Runtime content -->
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="mydbModel.Store" Alias="Self" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.6" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+      <Schema Namespace="mydbModel.Store" Alias="Self" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.6" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityContainer Name="mydbModelStoreContainer">
           <EntitySet Name="playlist_song" EntityType="mydbModel.Store.playlist_song" store:Type="Tables" Schema="mydb" />
           <EntitySet Name="songalbum" EntityType="mydbModel.Store.songalbum" store:Type="Tables" Schema="mydb" />
@@ -26,6 +26,14 @@
           <AssociationSet Name="playlistID" Association="mydbModel.Store.playlistID">
             <End Role="userplaylist" EntitySet="userplaylist" />
             <End Role="playlist_song" EntitySet="playlist_song" />
+          </AssociationSet>
+          <AssociationSet Name="songAlbumID" Association="mydbModel.Store.songAlbumID">
+            <End Role="songalbum" EntitySet="songalbum" />
+            <End Role="songinfo" EntitySet="songinfo" />
+          </AssociationSet>
+          <AssociationSet Name="songArtist1" Association="mydbModel.Store.songArtist1">
+            <End Role="songartist" EntitySet="songartist" />
+            <End Role="songinfo" EntitySet="songinfo" />
           </AssociationSet>
           <AssociationSet Name="uerAddID" Association="mydbModel.Store.uerAddID">
             <End Role="useraddress" EntitySet="useraddress" />
@@ -71,9 +79,9 @@
           </Key>
           <Property Name="idSongInfo" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="Title" Type="varchar" Nullable="false" MaxLength="45" />
-          <Property Name="Artist" Type="varchar" MaxLength="45" />
+          <Property Name="Artist" Type="int" />
           <Property Name="Genre" Type="varchar" MaxLength="45" />
-          <Property Name="Album" Type="varchar" MaxLength="45" />
+          <Property Name="Album" Type="int" />
           <Property Name="Location" Type="varchar" MaxLength="45" />
           <Property Name="AlbumTrack" Type="int" />
           <Property Name="Year" Type="int" />
@@ -166,6 +174,30 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="songAlbumID">
+          <End Role="songalbum" Type="mydbModel.Store.songalbum" Multiplicity="0..1" />
+          <End Role="songinfo" Type="mydbModel.Store.songinfo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="songalbum">
+              <PropertyRef Name="songAlbumID" />
+            </Principal>
+            <Dependent Role="songinfo">
+              <PropertyRef Name="Album" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="songArtist1">
+          <End Role="songartist" Type="mydbModel.Store.songartist" Multiplicity="0..1" />
+          <End Role="songinfo" Type="mydbModel.Store.songinfo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="songartist">
+              <PropertyRef Name="songArtistID" />
+            </Principal>
+            <Dependent Role="songinfo">
+              <PropertyRef Name="Artist" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="uerAddID">
           <End Role="useraddress" Type="mydbModel.Store.useraddress" Multiplicity="0..1" />
           <End Role="userinfo" Type="mydbModel.Store.userinfo" Multiplicity="*" />
@@ -206,8 +238,8 @@
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="mydbModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
-        <EntityContainer Name="mydbEntities" annotation:LazyLoadingEnabled="true">
+      <Schema Namespace="mydbModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="mydbEntities" p1:LazyLoadingEnabled="true">
           <EntitySet Name="songalbums" EntityType="mydbModel.songalbum" />
           <EntitySet Name="songartists" EntityType="mydbModel.songartist" />
           <EntitySet Name="songinfoes" EntityType="mydbModel.songinfo" />
@@ -216,6 +248,14 @@
           <EntitySet Name="userinfoes" EntityType="mydbModel.userinfo" />
           <EntitySet Name="userplaylists" EntityType="mydbModel.userplaylist" />
           <EntitySet Name="userpurchases" EntityType="mydbModel.userpurchas" />
+          <AssociationSet Name="songAlbumID" Association="mydbModel.songAlbumID">
+            <End Role="songalbum" EntitySet="songalbums" />
+            <End Role="songinfo" EntitySet="songinfoes" />
+          </AssociationSet>
+          <AssociationSet Name="songArtist1" Association="mydbModel.songArtist1">
+            <End Role="songartist" EntitySet="songartists" />
+            <End Role="songinfo" EntitySet="songinfoes" />
+          </AssociationSet>
           <AssociationSet Name="idSongInfo" Association="mydbModel.idSongInfo">
             <End Role="songinfo" EntitySet="songinfoes" />
             <End Role="userpurchases" EntitySet="userpurchases" />
@@ -241,34 +281,38 @@
           <Key>
             <PropertyRef Name="songAlbumID" />
           </Key>
-          <Property Name="songAlbumID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="songAlbumID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
           <Property Name="songAlbumName" Type="String" MaxLength="45" Unicode="false" FixedLength="false" />
           <Property Name="songAlbumLabel" Type="String" MaxLength="45" Unicode="false" FixedLength="false" />
           <Property Name="songAlbumYear" Type="String" MaxLength="45" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="songinfoes" Relationship="mydbModel.songAlbumID" FromRole="songalbum" ToRole="songinfo" />
         </EntityType>
         <EntityType Name="songartist">
           <Key>
             <PropertyRef Name="songArtistID" />
           </Key>
-          <Property Name="songArtistID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="songArtistID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
           <Property Name="ArtistName" Type="String" MaxLength="45" Unicode="false" FixedLength="false" />
           <Property Name="ArtistLabel" Type="String" MaxLength="45" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="songinfoes" Relationship="mydbModel.songArtist1" FromRole="songartist" ToRole="songinfo" />
         </EntityType>
         <EntityType Name="songinfo">
           <Key>
             <PropertyRef Name="idSongInfo" />
           </Key>
-          <Property Name="idSongInfo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idSongInfo" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
           <Property Name="Title" Type="String" Nullable="false" MaxLength="45" Unicode="false" FixedLength="false" />
-          <Property Name="Artist" Type="String" MaxLength="45" Unicode="false" FixedLength="false" />
+          <Property Name="Artist" Type="Int32" />
           <Property Name="Genre" Type="String" MaxLength="45" Unicode="false" FixedLength="false" />
-          <Property Name="Album" Type="String" MaxLength="45" Unicode="false" FixedLength="false" />
+          <Property Name="Album" Type="Int32" />
           <Property Name="Location" Type="String" MaxLength="45" Unicode="false" FixedLength="false" />
           <Property Name="AlbumTrack" Type="Int32" />
           <Property Name="Year" Type="Int32" />
           <Property Name="Comment" Type="String" MaxLength="45" Unicode="false" FixedLength="false" />
           <Property Name="PlayCount" Type="Int32" />
           <Property Name="BPM" Type="Int32" />
+          <NavigationProperty Name="songalbum" Relationship="mydbModel.songAlbumID" FromRole="songinfo" ToRole="songalbum" />
+          <NavigationProperty Name="songartist" Relationship="mydbModel.songArtist1" FromRole="songinfo" ToRole="songartist" />
           <NavigationProperty Name="userpurchases" Relationship="mydbModel.idSongInfo" FromRole="songinfo" ToRole="userpurchases" />
           <NavigationProperty Name="userplaylists" Relationship="mydbModel.playlist_song" FromRole="songinfo" ToRole="userplaylist" />
         </EntityType>
@@ -276,7 +320,7 @@
           <Key>
             <PropertyRef Name="userAddID" />
           </Key>
-          <Property Name="userAddID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="userAddID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
           <Property Name="userStreet" Type="String" MaxLength="45" Unicode="false" FixedLength="false" />
           <Property Name="userCity" Type="String" MaxLength="45" Unicode="false" FixedLength="false" />
           <Property Name="userState" Type="String" MaxLength="45" Unicode="false" FixedLength="false" />
@@ -288,10 +332,10 @@
           <Key>
             <PropertyRef Name="userCreditCardID" />
           </Key>
-          <Property Name="userCreditCardID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="userCreditCardID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
           <Property Name="userCardType" Type="String" MaxLength="45" Unicode="false" FixedLength="false" />
           <Property Name="userCreditCardNumber" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
-          <Property Name="userCardExpDate" Type="String" MaxLength="7" Unicode="false" FixedLength="false" />
+          <Property Name="userCardExpDate" Type="String" MaxLength="7" Unicode="false" FixedLength="true" />
           <Property Name="userCardCCV" Type="Int32" />
           <Property Name="userCardName" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
           <NavigationProperty Name="userinfoes" Relationship="mydbModel.userCreditCardID" FromRole="usercreditcardinfo" ToRole="userinfo" />
@@ -300,7 +344,7 @@
           <Key>
             <PropertyRef Name="iduserInfo" />
           </Key>
-          <Property Name="iduserInfo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="iduserInfo" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
           <Property Name="userFirstName" Type="String" MaxLength="45" Unicode="false" FixedLength="false" />
           <Property Name="userLastName" Type="String" MaxLength="45" Unicode="false" FixedLength="false" />
           <Property Name="userAddID" Type="Int32" />
@@ -316,7 +360,7 @@
           <Key>
             <PropertyRef Name="userplaylistID" />
           </Key>
-          <Property Name="userplaylistID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="userplaylistID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
           <Property Name="userplaylistNAME" Type="String" MaxLength="45" Unicode="false" FixedLength="false" />
           <NavigationProperty Name="songinfoes" Relationship="mydbModel.playlist_song" FromRole="userplaylist" ToRole="songinfo" />
         </EntityType>
@@ -324,11 +368,35 @@
           <Key>
             <PropertyRef Name="userPurchasesID" />
           </Key>
-          <Property Name="userPurchasesID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="userPurchasesID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
           <Property Name="idSongInfo" Type="Int32" />
           <NavigationProperty Name="songinfo" Relationship="mydbModel.idSongInfo" FromRole="userpurchases" ToRole="songinfo" />
           <NavigationProperty Name="userinfoes" Relationship="mydbModel.userPurchasesID" FromRole="userpurchases" ToRole="userinfo" />
         </EntityType>
+        <Association Name="songAlbumID">
+          <End Role="songalbum" Type="mydbModel.songalbum" Multiplicity="0..1" />
+          <End Role="songinfo" Type="mydbModel.songinfo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="songalbum">
+              <PropertyRef Name="songAlbumID" />
+            </Principal>
+            <Dependent Role="songinfo">
+              <PropertyRef Name="Album" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="songArtist1">
+          <End Role="songartist" Type="mydbModel.songartist" Multiplicity="0..1" />
+          <End Role="songinfo" Type="mydbModel.songinfo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="songartist">
+              <PropertyRef Name="songArtistID" />
+            </Principal>
+            <Dependent Role="songinfo">
+              <PropertyRef Name="Artist" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="idSongInfo">
           <End Role="songinfo" Type="mydbModel.songinfo" Multiplicity="0..1" />
           <End Role="userpurchases" Type="mydbModel.userpurchas" Multiplicity="*" />
@@ -385,7 +453,7 @@
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
-      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="mydbModelStoreContainer" CdmEntityContainer="mydbEntities">
           <EntitySetMapping Name="songalbums">
             <EntityTypeMapping TypeName="mydbModel.songalbum">
@@ -490,7 +558,7 @@
     </edmx:Mappings>
   </edmx:Runtime>
   <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
-  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <Connection>
       <DesignerInfoPropertySet>
         <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
@@ -504,41 +572,6 @@
       </DesignerInfoPropertySet>
     </Options>
     <!-- Diagram content (shape and connector positions) -->
-    <Diagrams>
-      <Diagram Name="Model1">
-        <EntityTypeShape EntityType="mydbModel.songalbum" Width="1.5" PointX="5.75" PointY="0.75" Height="1.7879850260416672" IsExpanded="true" />
-        <EntityTypeShape EntityType="mydbModel.songartist" Width="1.5" PointX="7.75" PointY="0.75" Height="1.5956835937499996" IsExpanded="true" />
-        <EntityTypeShape EntityType="mydbModel.songinfo" Width="1.5" PointX="0.75" PointY="2.375" Height="3.5186979166666656" IsExpanded="true" />
-        <EntityTypeShape EntityType="mydbModel.useraddress" Width="1.5" PointX="3" PointY="7.25" Height="2.3648893229166665" IsExpanded="true" />
-        <EntityTypeShape EntityType="mydbModel.usercreditcardinfo" Width="1.5" PointX="3" PointY="10.375" Height="2.3648893229166639" IsExpanded="true" />
-        <EntityTypeShape EntityType="mydbModel.userinfo" Width="1.5" PointX="5.25" PointY="3.5" Height="3.1340950520833331" IsExpanded="true" />
-        <EntityTypeShape EntityType="mydbModel.userplaylist" Width="1.5" PointX="3" PointY="1.75" Height="1.5956835937499996" IsExpanded="true" />
-        <EntityTypeShape EntityType="mydbModel.userpurchas" Width="1.5" PointX="3" PointY="4.125" Height="1.7879850260416674" IsExpanded="true" />
-        <AssociationConnector Association="mydbModel.idSongInfo" ManuallyRouted="false">
-          <ConnectorPoint PointX="2.25" PointY="4.8843489583333328" />
-          <ConnectorPoint PointX="3" PointY="4.8843489583333328" />
-        </AssociationConnector>
-        <AssociationConnector Association="mydbModel.uerAddID" ManuallyRouted="false">
-          <ConnectorPoint PointX="4.5" PointY="8.4324446614583337" />
-          <ConnectorPoint PointX="5.5104141666666671" PointY="8.4324446614583337" />
-          <ConnectorPoint PointX="5.6770808333333331" PointY="8.4324446614583337" />
-          <ConnectorPoint PointX="6" PointY="8.4324446614583337" />
-          <ConnectorPoint PointX="6" PointY="6.6340950520833335" />
-        </AssociationConnector>
-        <AssociationConnector Association="mydbModel.userCreditCardID" ManuallyRouted="false">
-          <ConnectorPoint PointX="4.5" PointY="11.557444661458332" />
-          <ConnectorPoint PointX="5.5937475" PointY="11.557444661458332" />
-          <ConnectorPoint PointX="5.5937475" PointY="6.6340950520833335" />
-        </AssociationConnector>
-        <AssociationConnector Association="mydbModel.userPurchasesID" ManuallyRouted="false">
-          <ConnectorPoint PointX="4.5" PointY="5.0189925130208337" />
-          <ConnectorPoint PointX="5.25" PointY="5.0189925130208337" />
-        </AssociationConnector>
-        <AssociationConnector Association="mydbModel.playlist_song" ManuallyRouted="false">
-          <ConnectorPoint PointX="2.25" PointY="2.735341796875" />
-          <ConnectorPoint PointX="3" PointY="2.735341796875" />
-        </AssociationConnector>
-      </Diagram>
-    </Diagrams>
+    <Diagrams></Diagrams>
   </Designer>
 </edmx:Edmx>

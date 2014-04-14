@@ -19,6 +19,10 @@ namespace backleft_music_UI
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'mydbDataSet.songinfo' table. You can move, or remove it, as needed.
+            this.songinfoTableAdapter.Fill(this.mydbDataSet.songinfo);
+            // TODO: This line of code loads data into the 'mydbDataSet.playlist_song' table. You can move, or remove it, as needed.
+            this.playlist_songTableAdapter.Fill(this.mydbDataSet.playlist_song);
 
         }
 
@@ -43,6 +47,29 @@ namespace backleft_music_UI
         }
 
         private void tabPage1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void createButton_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        {
+            
+        }
+
+        private void playlist_songBindingNavigatorSaveItem_Click(object sender, EventArgs e)
+        {
+            this.Validate();
+            this.playlist_songBindingSource.EndEdit();
+            this.tableAdapterManager.UpdateAll(this.mydbDataSet);
+
+        }
+
+        private void songinfoDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }
