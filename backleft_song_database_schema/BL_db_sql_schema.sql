@@ -6,14 +6,14 @@ CREATE SCHEMA IF NOT EXISTS `mydb` DEFAULT CHARACTER SET utf8 ;
 USE `mydb` ;
 
 -- -----------------------------------------------------
--- Table `mydb`.`playlist_song`
+-- Table `mydb`.`userplaylist`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`playlist_song` (
-  `userplaylistID` INT(11) NOT NULL,
-  `idSongInfo` INT(11) NOT NULL,
-  PRIMARY KEY (`userplaylistID`, `idSongInfo`),
-  INDEX `idSongInfo_idx` (`idSongInfo` ASC))
+CREATE TABLE IF NOT EXISTS `mydb`.`userplaylist` (
+  `userplaylistID` INT(11) NOT NULL AUTO_INCREMENT,
+  `userplaylistNAME` VARCHAR(45) NULL DEFAULT NULL,
+  PRIMARY KEY (`userplaylistID`))
 ENGINE = InnoDB
+AUTO_INCREMENT = 3
 DEFAULT CHARACTER SET = utf8;
 
 
@@ -78,6 +78,28 @@ DEFAULT CHARACTER SET = utf8;
 
 
 -- -----------------------------------------------------
+-- Table `mydb`.`playlist_song`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `mydb`.`playlist_song` (
+  `userplaylistID` INT(11) NOT NULL,
+  `idSongInfo` INT(11) NOT NULL,
+  PRIMARY KEY (`userplaylistID`, `idSongInfo`),
+  INDEX `idSongInfo_idx` (`idSongInfo` ASC),
+  CONSTRAINT `playlistID`
+    FOREIGN KEY (`userplaylistID`)
+    REFERENCES `mydb`.`userplaylist` (`userplaylistID`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `idSong`
+    FOREIGN KEY (`idSongInfo`)
+    REFERENCES `mydb`.`songinfo` (`idSongInfo`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8;
+
+
+-- -----------------------------------------------------
 -- Table `mydb`.`useraddress`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `mydb`.`useraddress` (
@@ -137,18 +159,6 @@ CREATE TABLE IF NOT EXISTS `mydb`.`userinfo` (
     ON UPDATE NO ACTION)
 ENGINE = InnoDB
 AUTO_INCREMENT = 7
-DEFAULT CHARACTER SET = utf8;
-
-
--- -----------------------------------------------------
--- Table `mydb`.`userplaylist`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`userplaylist` (
-  `userplaylistID` INT(11) NOT NULL AUTO_INCREMENT,
-  `userplaylistNAME` VARCHAR(45) NULL DEFAULT NULL,
-  PRIMARY KEY (`userplaylistID`))
-ENGINE = InnoDB
-AUTO_INCREMENT = 3
 DEFAULT CHARACTER SET = utf8;
 
 
