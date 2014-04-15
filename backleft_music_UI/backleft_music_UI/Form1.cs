@@ -77,6 +77,7 @@ namespace backleft_music_UI
         {
             // Open form 2
             var form = new form2();
+            // string songname = e.Cells[2];
             form.Show();
         }
     }

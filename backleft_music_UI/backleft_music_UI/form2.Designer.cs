@@ -151,9 +151,9 @@
             this.label11.AutoSize = true;
             this.label11.Location = new System.Drawing.Point(46, 319);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(32, 13);
+            this.label11.Size = new System.Drawing.Size(65, 13);
             this.label11.TabIndex = 10;
-            this.label11.Text = "(item)";
+            this.label11.Text = "(song name)";
             this.label11.Click += new System.EventHandler(this.label11_Click);
             // 
             // label12
@@ -161,9 +161,9 @@
             this.label12.AutoSize = true;
             this.label12.Location = new System.Drawing.Point(154, 317);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(36, 13);
+            this.label12.Size = new System.Drawing.Size(34, 13);
             this.label12.TabIndex = 11;
-            this.label12.Text = "(price)";
+            this.label12.Text = "$0.99";
             // 
             // textBox1
             // 
