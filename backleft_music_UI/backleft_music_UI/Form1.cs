@@ -77,7 +77,8 @@ namespace backleft_music_UI
         {
             // Open form 2
             var form = new form2();
-            // string songname = e.Cells[2];
+            string yo =  this.songinfoDataGridView[1, e.RowIndex].Value.ToString();
+            Console.WriteLine(yo);
             form.Show();
         }
     }

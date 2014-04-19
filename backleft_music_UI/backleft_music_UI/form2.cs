@@ -19,7 +19,7 @@ namespace backleft_music_UI
 
         private void form2_Load(object sender, EventArgs e)
         {
-            label11.Text = data
+           // label11.Text = 
         }
 
         private void label3_Click(object sender, EventArgs e)
