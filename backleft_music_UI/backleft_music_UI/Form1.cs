@@ -76,10 +76,16 @@ namespace backleft_music_UI
         private void songinfoDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             // Open form 2
-            var form = new form2();
-            string yo =  this.songinfoDataGridView[1, e.RowIndex].Value.ToString();
-            Console.WriteLine(yo);
+            string songName = this.songinfoDataGridView[1, e.RowIndex].Value.ToString();
+            int songID = (int)this.songinfoDataGridView[12, e.RowIndex].Value;
+            var form = new form2(songName, songID);
+            Console.WriteLine(songName);
             form.Show();
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

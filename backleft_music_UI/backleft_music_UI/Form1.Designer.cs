@@ -31,7 +31,22 @@
             this.components = new System.ComponentModel.Container();
             this.tabControl = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.songinfoDataGridView = new System.Windows.Forms.DataGridView();
+            this.songinfoBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.mydbDataSet = new backleft_music_UI.mydbDataSet();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dataGridViewCheckBoxColumn1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn17 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn18 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn19 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn20 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.storeButton = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.createButton = new System.Windows.Forms.Button();
@@ -40,17 +55,14 @@
             this.removeButton = new System.Windows.Forms.Button();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.nameLabel = new System.Windows.Forms.Label();
-            this.mydbDataSet = new backleft_music_UI.mydbDataSet();
             this.playlist_songBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.playlist_songTableAdapter = new backleft_music_UI.mydbDataSetTableAdapters.playlist_songTableAdapter();
             this.tableAdapterManager = new backleft_music_UI.mydbDataSetTableAdapters.TableAdapterManager();
-            this.songinfoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.songinfoTableAdapter = new backleft_music_UI.mydbDataSetTableAdapters.songinfoTableAdapter();
-            this.songinfoDataGridView = new System.Windows.Forms.DataGridView();
-            this.userplaylistBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.userplaylistTableAdapter = new backleft_music_UI.mydbDataSetTableAdapters.userplaylistTableAdapter();
-            this.userpurchasesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.userpurchasesTableAdapter = new backleft_music_UI.mydbDataSetTableAdapters.userpurchasesTableAdapter();
+            this.userplaylistBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.userpurchasesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.col1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -63,12 +75,15 @@
             this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.buy = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabControl.SuspendLayout();
             this.tabPage1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.mydbDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.playlist_songBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.songinfoBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.songinfoDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.songinfoBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mydbDataSet)).BeginInit();
+            this.tabPage2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.playlist_songBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.userplaylistBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.userpurchasesBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -96,16 +111,149 @@
             this.tabPage1.UseVisualStyleBackColor = true;
             this.tabPage1.Click += new System.EventHandler(this.tabPage1_Click);
             // 
+            // songinfoDataGridView
+            // 
+            this.songinfoDataGridView.AutoGenerateColumns = false;
+            this.songinfoDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.songinfoDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.col1,
+            this.dataGridViewTextBoxColumn2,
+            this.dataGridViewTextBoxColumn3,
+            this.dataGridViewTextBoxColumn4,
+            this.dataGridViewTextBoxColumn5,
+            this.dataGridViewTextBoxColumn6,
+            this.dataGridViewTextBoxColumn7,
+            this.dataGridViewTextBoxColumn8,
+            this.dataGridViewTextBoxColumn9,
+            this.dataGridViewTextBoxColumn10,
+            this.dataGridViewTextBoxColumn11,
+            this.buy,
+            this.Column1});
+            this.songinfoDataGridView.DataSource = this.songinfoBindingSource;
+            this.songinfoDataGridView.Location = new System.Drawing.Point(0, 0);
+            this.songinfoDataGridView.Name = "songinfoDataGridView";
+            this.songinfoDataGridView.Size = new System.Drawing.Size(878, 345);
+            this.songinfoDataGridView.TabIndex = 0;
+            this.songinfoDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.songinfoDataGridView_CellContentClick);
+            // 
+            // songinfoBindingSource
+            // 
+            this.songinfoBindingSource.DataMember = "songinfo";
+            this.songinfoBindingSource.DataSource = this.mydbDataSet;
+            // 
+            // mydbDataSet
+            // 
+            this.mydbDataSet.DataSetName = "mydbDataSet";
+            this.mydbDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // tabPage2
             // 
             this.tabPage2.AutoScroll = true;
+            this.tabPage2.Controls.Add(this.dataGridView1);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(783, 348);
+            this.tabPage2.Size = new System.Drawing.Size(874, 348);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Music";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.AutoGenerateColumns = false;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewCheckBoxColumn1,
+            this.dataGridViewTextBoxColumn1,
+            this.dataGridViewTextBoxColumn12,
+            this.dataGridViewTextBoxColumn13,
+            this.dataGridViewTextBoxColumn14,
+            this.dataGridViewTextBoxColumn15,
+            this.dataGridViewTextBoxColumn16,
+            this.dataGridViewTextBoxColumn17,
+            this.dataGridViewTextBoxColumn18,
+            this.dataGridViewTextBoxColumn19,
+            this.dataGridViewTextBoxColumn20});
+            this.dataGridView1.DataSource = this.songinfoBindingSource;
+            this.dataGridView1.Location = new System.Drawing.Point(-4, 0);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(878, 345);
+            this.dataGridView1.TabIndex = 1;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            // 
+            // dataGridViewCheckBoxColumn1
+            // 
+            this.dataGridViewCheckBoxColumn1.HeaderText = "";
+            this.dataGridViewCheckBoxColumn1.Name = "dataGridViewCheckBoxColumn1";
+            this.dataGridViewCheckBoxColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewCheckBoxColumn1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.dataGridViewCheckBoxColumn1.Width = 20;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "Title";
+            this.dataGridViewTextBoxColumn1.HeaderText = "Title";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            // 
+            // dataGridViewTextBoxColumn12
+            // 
+            this.dataGridViewTextBoxColumn12.DataPropertyName = "Artist";
+            this.dataGridViewTextBoxColumn12.HeaderText = "Artist";
+            this.dataGridViewTextBoxColumn12.Name = "dataGridViewTextBoxColumn12";
+            // 
+            // dataGridViewTextBoxColumn13
+            // 
+            this.dataGridViewTextBoxColumn13.DataPropertyName = "Genre";
+            this.dataGridViewTextBoxColumn13.HeaderText = "Genre";
+            this.dataGridViewTextBoxColumn13.Name = "dataGridViewTextBoxColumn13";
+            this.dataGridViewTextBoxColumn13.Width = 80;
+            // 
+            // dataGridViewTextBoxColumn14
+            // 
+            this.dataGridViewTextBoxColumn14.DataPropertyName = "Album";
+            this.dataGridViewTextBoxColumn14.HeaderText = "Album";
+            this.dataGridViewTextBoxColumn14.Name = "dataGridViewTextBoxColumn14";
+            // 
+            // dataGridViewTextBoxColumn15
+            // 
+            this.dataGridViewTextBoxColumn15.DataPropertyName = "Location";
+            this.dataGridViewTextBoxColumn15.HeaderText = "Location";
+            this.dataGridViewTextBoxColumn15.Name = "dataGridViewTextBoxColumn15";
+            this.dataGridViewTextBoxColumn15.Width = 50;
+            // 
+            // dataGridViewTextBoxColumn16
+            // 
+            this.dataGridViewTextBoxColumn16.DataPropertyName = "AlbumTrack";
+            this.dataGridViewTextBoxColumn16.HeaderText = "#";
+            this.dataGridViewTextBoxColumn16.Name = "dataGridViewTextBoxColumn16";
+            this.dataGridViewTextBoxColumn16.Width = 20;
+            // 
+            // dataGridViewTextBoxColumn17
+            // 
+            this.dataGridViewTextBoxColumn17.DataPropertyName = "Year";
+            this.dataGridViewTextBoxColumn17.HeaderText = "Year";
+            this.dataGridViewTextBoxColumn17.Name = "dataGridViewTextBoxColumn17";
+            this.dataGridViewTextBoxColumn17.Width = 50;
+            // 
+            // dataGridViewTextBoxColumn18
+            // 
+            this.dataGridViewTextBoxColumn18.DataPropertyName = "Comment";
+            this.dataGridViewTextBoxColumn18.HeaderText = "Comment";
+            this.dataGridViewTextBoxColumn18.Name = "dataGridViewTextBoxColumn18";
+            // 
+            // dataGridViewTextBoxColumn19
+            // 
+            this.dataGridViewTextBoxColumn19.DataPropertyName = "PlayCount";
+            this.dataGridViewTextBoxColumn19.HeaderText = "Play Count";
+            this.dataGridViewTextBoxColumn19.Name = "dataGridViewTextBoxColumn19";
+            this.dataGridViewTextBoxColumn19.Width = 90;
+            // 
+            // dataGridViewTextBoxColumn20
+            // 
+            this.dataGridViewTextBoxColumn20.DataPropertyName = "BPM";
+            this.dataGridViewTextBoxColumn20.HeaderText = "BPM";
+            this.dataGridViewTextBoxColumn20.Name = "dataGridViewTextBoxColumn20";
+            this.dataGridViewTextBoxColumn20.Width = 40;
             // 
             // storeButton
             // 
@@ -178,11 +326,6 @@
             this.nameLabel.TabIndex = 8;
             this.nameLabel.Text = "Backleft Music";
             // 
-            // mydbDataSet
-            // 
-            this.mydbDataSet.DataSetName = "mydbDataSet";
-            this.mydbDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
             // playlist_songBindingSource
             // 
             this.playlist_songBindingSource.DataMember = "playlist_song";
@@ -206,56 +349,27 @@
             this.tableAdapterManager.userplaylistTableAdapter = this.userplaylistTableAdapter;
             this.tableAdapterManager.userpurchasesTableAdapter = this.userpurchasesTableAdapter;
             // 
-            // songinfoBindingSource
-            // 
-            this.songinfoBindingSource.DataMember = "songinfo";
-            this.songinfoBindingSource.DataSource = this.mydbDataSet;
-            // 
             // songinfoTableAdapter
             // 
             this.songinfoTableAdapter.ClearBeforeFill = true;
             // 
-            // songinfoDataGridView
+            // userplaylistTableAdapter
             // 
-            this.songinfoDataGridView.AutoGenerateColumns = false;
-            this.songinfoDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.songinfoDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.col1,
-            this.dataGridViewTextBoxColumn2,
-            this.dataGridViewTextBoxColumn3,
-            this.dataGridViewTextBoxColumn4,
-            this.dataGridViewTextBoxColumn5,
-            this.dataGridViewTextBoxColumn6,
-            this.dataGridViewTextBoxColumn7,
-            this.dataGridViewTextBoxColumn8,
-            this.dataGridViewTextBoxColumn9,
-            this.dataGridViewTextBoxColumn10,
-            this.dataGridViewTextBoxColumn11,
-            this.buy});
-            this.songinfoDataGridView.DataSource = this.songinfoBindingSource;
-            this.songinfoDataGridView.Location = new System.Drawing.Point(0, 0);
-            this.songinfoDataGridView.Name = "songinfoDataGridView";
-            this.songinfoDataGridView.Size = new System.Drawing.Size(878, 345);
-            this.songinfoDataGridView.TabIndex = 0;
-            this.songinfoDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.songinfoDataGridView_CellContentClick);
+            this.userplaylistTableAdapter.ClearBeforeFill = true;
+            // 
+            // userpurchasesTableAdapter
+            // 
+            this.userpurchasesTableAdapter.ClearBeforeFill = true;
             // 
             // userplaylistBindingSource
             // 
             this.userplaylistBindingSource.DataMember = "userplaylist";
             this.userplaylistBindingSource.DataSource = this.mydbDataSet;
             // 
-            // userplaylistTableAdapter
-            // 
-            this.userplaylistTableAdapter.ClearBeforeFill = true;
-            // 
             // userpurchasesBindingSource
             // 
             this.userpurchasesBindingSource.DataMember = "userpurchases";
             this.userpurchasesBindingSource.DataSource = this.mydbDataSet;
-            // 
-            // userpurchasesTableAdapter
-            // 
-            this.userpurchasesTableAdapter.ClearBeforeFill = true;
             // 
             // col1
             // 
@@ -341,6 +455,13 @@
             this.buy.UseColumnTextForButtonValue = true;
             this.buy.Width = 70;
             // 
+            // Column1
+            // 
+            this.Column1.DataPropertyName = "idSongInfo";
+            this.Column1.HeaderText = "SongID";
+            this.Column1.Name = "Column1";
+            this.Column1.Visible = false;
+            // 
             // libForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -360,10 +481,12 @@
             this.Load += new System.EventHandler(this.Form1_Load);
             this.tabControl.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.mydbDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.playlist_songBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.songinfoBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.songinfoDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.songinfoBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mydbDataSet)).EndInit();
+            this.tabPage2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.playlist_songBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.userplaylistBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.userpurchasesBindingSource)).EndInit();
             this.ResumeLayout(false);
@@ -395,6 +518,18 @@
         private System.Windows.Forms.BindingSource userplaylistBindingSource;
         private mydbDataSetTableAdapters.userpurchasesTableAdapter userpurchasesTableAdapter;
         private System.Windows.Forms.BindingSource userpurchasesBindingSource;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn dataGridViewCheckBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn12;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn13;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn14;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn15;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn16;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn17;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn18;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn19;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn20;
         private System.Windows.Forms.DataGridViewCheckBoxColumn col1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
@@ -407,6 +542,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn11;
         private System.Windows.Forms.DataGridViewButtonColumn buy;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
     }
 }
 
