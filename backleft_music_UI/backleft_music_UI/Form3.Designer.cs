@@ -37,6 +37,7 @@
             this.lastNameTextBox = new System.Windows.Forms.TextBox();
             this.emailTextBox = new System.Windows.Forms.TextBox();
             this.phoneTextBox = new System.Windows.Forms.TextBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // userinfoTableAdapter1
@@ -107,11 +108,22 @@
             this.phoneTextBox.Size = new System.Drawing.Size(163, 20);
             this.phoneTextBox.TabIndex = 7;
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(97, 114);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 8;
+            this.button1.Text = "Register";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // Form3
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(264, 118);
+            this.ClientSize = new System.Drawing.Size(264, 143);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.phoneTextBox);
             this.Controls.Add(this.emailTextBox);
             this.Controls.Add(this.lastNameTextBox);
@@ -139,6 +151,7 @@
         private System.Windows.Forms.TextBox lastNameTextBox;
         private System.Windows.Forms.TextBox emailTextBox;
         private System.Windows.Forms.TextBox phoneTextBox;
+        private System.Windows.Forms.Button button1;
 
     }
 }

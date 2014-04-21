@@ -87,5 +87,13 @@ namespace backleft_music_UI
         {
 
         }
+
+        private void loginButton_Click(object sender, EventArgs e)
+        {
+            string email = loginTextBox.Text;
+
+            var form = new Form3(email);
+            form.Show();
+        }
     }
 }

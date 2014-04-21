@@ -20,3 +20,16 @@ C:\Users\joseph.caruso\Documents\GitHub\MusicDatabase\backleft_music_UI\backleft
 C:\Users\joseph.caruso\Documents\GitHub\MusicDatabase\backleft_music_UI\backleft_music_UI\obj\Debug\backleft_music_UI.form2.resources
 C:\Users\joseph.caruso\Documents\GitHub\MusicDatabase\backleft_music_UI\backleft_music_UI\obj\Debug\backleft_music_UI.Properties.Resources.resources
 C:\Users\joseph.caruso\Documents\GitHub\MusicDatabase\backleft_music_UI\backleft_music_UI\obj\Debug\backleft_music_UI.csproj.GenerateResource.Cache
+C:\Users\James.Peck\Desktop\MusicDatabase\backleft_music_UI\backleft_music_UI\bin\Debug\backleft_music_UI.exe.config
+C:\Users\James.Peck\Desktop\MusicDatabase\backleft_music_UI\backleft_music_UI\obj\Debug\backleft_music_UI.exe
+C:\Users\James.Peck\Desktop\MusicDatabase\backleft_music_UI\backleft_music_UI\obj\Debug\backleft_music_UI.pdb
+C:\Users\James.Peck\Desktop\MusicDatabase\backleft_music_UI\backleft_music_UI\obj\Debug\backleft_music_UI.csprojResolveAssemblyReference.cache
+C:\Users\James.Peck\Desktop\MusicDatabase\backleft_music_UI\backleft_music_UI\obj\Debug\backleft_music_UI.libForm.resources
+C:\Users\James.Peck\Desktop\MusicDatabase\backleft_music_UI\backleft_music_UI\obj\Debug\backleft_music_UI.form2.resources
+C:\Users\James.Peck\Desktop\MusicDatabase\backleft_music_UI\backleft_music_UI\obj\Debug\backleft_music_UI.Form3.resources
+C:\Users\James.Peck\Desktop\MusicDatabase\backleft_music_UI\backleft_music_UI\obj\Debug\backleft_music_UI.Properties.Resources.resources
+C:\Users\James.Peck\Desktop\MusicDatabase\backleft_music_UI\backleft_music_UI\obj\Debug\backleft_music_UI.csproj.GenerateResource.Cache
+C:\Users\James.Peck\Desktop\MusicDatabase\backleft_music_UI\backleft_music_UI\bin\Debug\backleft_music_UI.exe
+C:\Users\James.Peck\Desktop\MusicDatabase\backleft_music_UI\backleft_music_UI\bin\Debug\backleft_music_UI.pdb
+C:\Users\James.Peck\Desktop\MusicDatabase\backleft_music_UI\backleft_music_UI\bin\Debug\EntityFramework.dll
+C:\Users\James.Peck\Desktop\MusicDatabase\backleft_music_UI\backleft_music_UI\bin\Debug\EntityFramework.xml

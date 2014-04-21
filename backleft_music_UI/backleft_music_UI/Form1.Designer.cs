@@ -32,6 +32,19 @@
             this.tabControl = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.songinfoDataGridView = new System.Windows.Forms.DataGridView();
+            this.col1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.buy = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.songinfoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.mydbDataSet = new backleft_music_UI.mydbDataSet();
             this.tabPage2 = new System.Windows.Forms.TabPage();
@@ -63,19 +76,8 @@
             this.userpurchasesTableAdapter = new backleft_music_UI.mydbDataSetTableAdapters.userpurchasesTableAdapter();
             this.userplaylistBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.userpurchasesBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.col1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.buy = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.loginButton = new System.Windows.Forms.Button();
+            this.loginTextBox = new System.Windows.Forms.TextBox();
             this.tabControl.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.songinfoDataGridView)).BeginInit();
@@ -135,6 +137,97 @@
             this.songinfoDataGridView.Size = new System.Drawing.Size(878, 345);
             this.songinfoDataGridView.TabIndex = 0;
             this.songinfoDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.songinfoDataGridView_CellContentClick);
+            // 
+            // col1
+            // 
+            this.col1.HeaderText = "";
+            this.col1.Name = "col1";
+            this.col1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.col1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.col1.Width = 20;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "Title";
+            this.dataGridViewTextBoxColumn2.HeaderText = "Title";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "Artist";
+            this.dataGridViewTextBoxColumn3.HeaderText = "Artist";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.DataPropertyName = "Genre";
+            this.dataGridViewTextBoxColumn4.HeaderText = "Genre";
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.Width = 80;
+            // 
+            // dataGridViewTextBoxColumn5
+            // 
+            this.dataGridViewTextBoxColumn5.DataPropertyName = "Album";
+            this.dataGridViewTextBoxColumn5.HeaderText = "Album";
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            // 
+            // dataGridViewTextBoxColumn6
+            // 
+            this.dataGridViewTextBoxColumn6.DataPropertyName = "Location";
+            this.dataGridViewTextBoxColumn6.HeaderText = "Location";
+            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            this.dataGridViewTextBoxColumn6.Width = 50;
+            // 
+            // dataGridViewTextBoxColumn7
+            // 
+            this.dataGridViewTextBoxColumn7.DataPropertyName = "AlbumTrack";
+            this.dataGridViewTextBoxColumn7.HeaderText = "#";
+            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
+            this.dataGridViewTextBoxColumn7.Width = 20;
+            // 
+            // dataGridViewTextBoxColumn8
+            // 
+            this.dataGridViewTextBoxColumn8.DataPropertyName = "Year";
+            this.dataGridViewTextBoxColumn8.HeaderText = "Year";
+            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
+            this.dataGridViewTextBoxColumn8.Width = 50;
+            // 
+            // dataGridViewTextBoxColumn9
+            // 
+            this.dataGridViewTextBoxColumn9.DataPropertyName = "Comment";
+            this.dataGridViewTextBoxColumn9.HeaderText = "Comment";
+            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
+            // 
+            // dataGridViewTextBoxColumn10
+            // 
+            this.dataGridViewTextBoxColumn10.DataPropertyName = "PlayCount";
+            this.dataGridViewTextBoxColumn10.HeaderText = "Play Count";
+            this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
+            this.dataGridViewTextBoxColumn10.Width = 90;
+            // 
+            // dataGridViewTextBoxColumn11
+            // 
+            this.dataGridViewTextBoxColumn11.DataPropertyName = "BPM";
+            this.dataGridViewTextBoxColumn11.HeaderText = "BPM";
+            this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
+            this.dataGridViewTextBoxColumn11.Width = 40;
+            // 
+            // buy
+            // 
+            this.buy.HeaderText = "Transaction";
+            this.buy.Name = "buy";
+            this.buy.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.buy.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.buy.Text = "Buy";
+            this.buy.UseColumnTextForButtonValue = true;
+            this.buy.Width = 70;
+            // 
+            // Column1
+            // 
+            this.Column1.DataPropertyName = "idSongInfo";
+            this.Column1.HeaderText = "SongID";
+            this.Column1.Name = "Column1";
+            this.Column1.Visible = false;
             // 
             // songinfoBindingSource
             // 
@@ -257,7 +350,7 @@
             // 
             // storeButton
             // 
-            this.storeButton.Location = new System.Drawing.Point(724, 7);
+            this.storeButton.Location = new System.Drawing.Point(458, 10);
             this.storeButton.Name = "storeButton";
             this.storeButton.Size = new System.Drawing.Size(75, 23);
             this.storeButton.TabIndex = 1;
@@ -311,9 +404,9 @@
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(496, 9);
+            this.textBox2.Location = new System.Drawing.Point(198, 11);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(222, 20);
+            this.textBox2.Size = new System.Drawing.Size(254, 20);
             this.textBox2.TabIndex = 7;
             // 
             // nameLabel
@@ -371,102 +464,31 @@
             this.userpurchasesBindingSource.DataMember = "userpurchases";
             this.userpurchasesBindingSource.DataSource = this.mydbDataSet;
             // 
-            // col1
+            // loginButton
             // 
-            this.col1.HeaderText = "";
-            this.col1.Name = "col1";
-            this.col1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.col1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.col1.Width = 20;
+            this.loginButton.Location = new System.Drawing.Point(819, 10);
+            this.loginButton.Name = "loginButton";
+            this.loginButton.Size = new System.Drawing.Size(75, 23);
+            this.loginButton.TabIndex = 9;
+            this.loginButton.Text = "Login";
+            this.loginButton.UseVisualStyleBackColor = true;
+            this.loginButton.Click += new System.EventHandler(this.loginButton_Click);
             // 
-            // dataGridViewTextBoxColumn2
+            // loginTextBox
             // 
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "Title";
-            this.dataGridViewTextBoxColumn2.HeaderText = "Title";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.DataPropertyName = "Artist";
-            this.dataGridViewTextBoxColumn3.HeaderText = "Artist";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            // 
-            // dataGridViewTextBoxColumn4
-            // 
-            this.dataGridViewTextBoxColumn4.DataPropertyName = "Genre";
-            this.dataGridViewTextBoxColumn4.HeaderText = "Genre";
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            this.dataGridViewTextBoxColumn4.Width = 80;
-            // 
-            // dataGridViewTextBoxColumn5
-            // 
-            this.dataGridViewTextBoxColumn5.DataPropertyName = "Album";
-            this.dataGridViewTextBoxColumn5.HeaderText = "Album";
-            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
-            // 
-            // dataGridViewTextBoxColumn6
-            // 
-            this.dataGridViewTextBoxColumn6.DataPropertyName = "Location";
-            this.dataGridViewTextBoxColumn6.HeaderText = "Location";
-            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
-            this.dataGridViewTextBoxColumn6.Width = 50;
-            // 
-            // dataGridViewTextBoxColumn7
-            // 
-            this.dataGridViewTextBoxColumn7.DataPropertyName = "AlbumTrack";
-            this.dataGridViewTextBoxColumn7.HeaderText = "#";
-            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
-            this.dataGridViewTextBoxColumn7.Width = 20;
-            // 
-            // dataGridViewTextBoxColumn8
-            // 
-            this.dataGridViewTextBoxColumn8.DataPropertyName = "Year";
-            this.dataGridViewTextBoxColumn8.HeaderText = "Year";
-            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
-            this.dataGridViewTextBoxColumn8.Width = 50;
-            // 
-            // dataGridViewTextBoxColumn9
-            // 
-            this.dataGridViewTextBoxColumn9.DataPropertyName = "Comment";
-            this.dataGridViewTextBoxColumn9.HeaderText = "Comment";
-            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
-            // 
-            // dataGridViewTextBoxColumn10
-            // 
-            this.dataGridViewTextBoxColumn10.DataPropertyName = "PlayCount";
-            this.dataGridViewTextBoxColumn10.HeaderText = "Play Count";
-            this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
-            this.dataGridViewTextBoxColumn10.Width = 90;
-            // 
-            // dataGridViewTextBoxColumn11
-            // 
-            this.dataGridViewTextBoxColumn11.DataPropertyName = "BPM";
-            this.dataGridViewTextBoxColumn11.HeaderText = "BPM";
-            this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
-            this.dataGridViewTextBoxColumn11.Width = 40;
-            // 
-            // buy
-            // 
-            this.buy.HeaderText = "Transaction";
-            this.buy.Name = "buy";
-            this.buy.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.buy.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.buy.Text = "Buy";
-            this.buy.UseColumnTextForButtonValue = true;
-            this.buy.Width = 70;
-            // 
-            // Column1
-            // 
-            this.Column1.DataPropertyName = "idSongInfo";
-            this.Column1.HeaderText = "SongID";
-            this.Column1.Name = "Column1";
-            this.Column1.Visible = false;
+            this.loginTextBox.Location = new System.Drawing.Point(639, 11);
+            this.loginTextBox.Name = "loginTextBox";
+            this.loginTextBox.Size = new System.Drawing.Size(174, 20);
+            this.loginTextBox.TabIndex = 10;
+            this.loginTextBox.Text = "email";
             // 
             // libForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(921, 454);
+            this.Controls.Add(this.loginTextBox);
+            this.Controls.Add(this.loginButton);
             this.Controls.Add(this.nameLabel);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.removeButton);
@@ -543,6 +565,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn11;
         private System.Windows.Forms.DataGridViewButtonColumn buy;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.Button loginButton;
+        private System.Windows.Forms.TextBox loginTextBox;
     }
 }
 

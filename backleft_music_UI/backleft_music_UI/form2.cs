@@ -70,8 +70,10 @@ namespace backleft_music_UI
             {
                 var user =
                     (from c in db.userinfo
-                     where c.iduserInfo == 1//to do fix this
+                     where c.iduserInfo == 1 // TODO: fix this (userID)
                      select c).First();
+
+                // TODO: add song to user's prurchases table.
 
                 //ALMOST THERE?//db.userpurchases.AdduserpurchasesRow(
                 this.Close();
