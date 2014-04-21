@@ -76,6 +76,9 @@ namespace backleft_music_UI
         private void songinfoDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             // Open form 2
+
+            if (e.RowIndex < 0 || e.ColumnIndex != songinfoDataGridView.Columns["Buy"].Index) return;
+            
             string songName = this.songinfoDataGridView[1, e.RowIndex].Value.ToString();
             int songID = (int)this.songinfoDataGridView[12, e.RowIndex].Value;
             var form = new form2(songName, songID);
