@@ -19,6 +19,8 @@ namespace backleft_music_UI
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'mydbDataSet.song_view' table. You can move, or remove it, as needed.
+            this.song_viewTableAdapter.Fill(this.mydbDataSet.song_view);
             // TODO: This line of code loads data into the 'mydbDataSet.userpurchases' table. You can move, or remove it, as needed.
             this.userpurchasesTableAdapter.Fill(this.mydbDataSet.userpurchases);
             // TODO: This line of code loads data into the 'mydbDataSet.userplaylist' table. You can move, or remove it, as needed.
@@ -73,18 +75,6 @@ namespace backleft_music_UI
 
         }
 
-        private void songinfoDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            // Open form 2
-
-            if (e.RowIndex < 0 || e.ColumnIndex != songinfoDataGridView.Columns["Buy"].Index) return;
-            
-            string songName = this.songinfoDataGridView[1, e.RowIndex].Value.ToString();
-            int songID = (int)this.songinfoDataGridView[12, e.RowIndex].Value;
-            var form = new form2(songName, songID);
-            Console.WriteLine(songName);
-            form.Show();
-        }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -96,6 +86,22 @@ namespace backleft_music_UI
             string email = loginTextBox.Text;
 
             var form = new Form3(email);
+            form.Show();
+        }
+
+        private void song_viewDataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            // Open form 2
+
+            if (e.RowIndex < 0 || e.ColumnIndex != song_viewDataGridView1.Columns["Buy"].Index) return;
+
+            string songName = this.song_viewDataGridView1[0, e.RowIndex].Value.ToString();
+
+            //int songID = (int)this.song_viewDataGridView1[12, e.RowIndex].Value;
+            int songID = 1;
+
+            var form = new form2(songName, songID);
+            Console.WriteLine(songName);
             form.Show();
         }
     }
