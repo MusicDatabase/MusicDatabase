@@ -79,5 +79,10 @@ namespace backleft_music_UI
                 this.Close();
             }
         }
+
+        private void textBox8_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

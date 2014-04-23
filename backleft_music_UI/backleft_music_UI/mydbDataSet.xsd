@@ -601,6 +601,77 @@
             </Mappings>
             <Sources />
           </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="playlist_viewTableAdapter" GeneratorDataComponentClassName="playlist_viewTableAdapter" Name="playlist_view" UserDataComponentName="playlist_viewTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="mydbConnectionString (Settings)" DbObjectName="mydb.playlist_view" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT `userplaylistNAME`, `Title`, `ArtistName`, `songAlbumName`, `PlayCount` FROM `mydb`.`playlist_view`</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="userplaylistNAME" DataSetColumn="userplaylistNAME" />
+              <Mapping SourceColumn="Title" DataSetColumn="Title" />
+              <Mapping SourceColumn="ArtistName" DataSetColumn="ArtistName" />
+              <Mapping SourceColumn="songAlbumName" DataSetColumn="songAlbumName" />
+              <Mapping SourceColumn="PlayCount" DataSetColumn="PlayCount" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="song_viewTableAdapter" GeneratorDataComponentClassName="song_viewTableAdapter" Name="song_view" UserDataComponentName="song_viewTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="mydbConnectionString (Settings)" DbObjectName="mydb.song_view" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT `Artist`, `Title`, `Genre`, `Album`, `Location`, `Album Track`, `Year`, `Comment`, `Playcount`, `BPM` FROM `mydb`.`song_view`</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Artist" DataSetColumn="Artist" />
+              <Mapping SourceColumn="Title" DataSetColumn="Title" />
+              <Mapping SourceColumn="Genre" DataSetColumn="Genre" />
+              <Mapping SourceColumn="Album" DataSetColumn="Album" />
+              <Mapping SourceColumn="Location" DataSetColumn="Location" />
+              <Mapping SourceColumn="Album Track" DataSetColumn="Album Track" />
+              <Mapping SourceColumn="Year" DataSetColumn="Year" />
+              <Mapping SourceColumn="Comment" DataSetColumn="Comment" />
+              <Mapping SourceColumn="Playcount" DataSetColumn="Playcount" />
+              <Mapping SourceColumn="BPM" DataSetColumn="BPM" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="user_viewTableAdapter" GeneratorDataComponentClassName="user_viewTableAdapter" Name="user_view" UserDataComponentName="user_viewTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="mydbConnectionString (Settings)" DbObjectName="mydb.user_view" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT `First Name`, `Last Name`, `Email`, `Phone Number`, `City`, `State`, `Country`, `Name on Card`, `Card Exp. Date`, `Card Type`, `Purchases ID` FROM `mydb`.`user_view`</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="First Name" DataSetColumn="First Name" />
+              <Mapping SourceColumn="Last Name" DataSetColumn="Last Name" />
+              <Mapping SourceColumn="Email" DataSetColumn="Email" />
+              <Mapping SourceColumn="Phone Number" DataSetColumn="Phone Number" />
+              <Mapping SourceColumn="City" DataSetColumn="City" />
+              <Mapping SourceColumn="State" DataSetColumn="State" />
+              <Mapping SourceColumn="Country" DataSetColumn="Country" />
+              <Mapping SourceColumn="Name on Card" DataSetColumn="Name on Card" />
+              <Mapping SourceColumn="Card Exp. Date" DataSetColumn="Card Exp_ Date" />
+              <Mapping SourceColumn="Card Type" DataSetColumn="Card Type" />
+              <Mapping SourceColumn="Purchases ID" DataSetColumn="Purchases ID" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
         </Tables>
         <Sources />
       </DataSource>
@@ -609,7 +680,7 @@
   <xs:element name="mydbDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="mydbDataSet" msprop:Generator_UserDSName="mydbDataSet">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="playlist_song" msprop:Generator_TableClassName="playlist_songDataTable" msprop:Generator_TableVarName="tableplaylist_song" msprop:Generator_TablePropName="playlist_song" msprop:Generator_RowDeletingName="playlist_songRowDeleting" msprop:Generator_RowChangingName="playlist_songRowChanging" msprop:Generator_RowEvHandlerName="playlist_songRowChangeEventHandler" msprop:Generator_RowDeletedName="playlist_songRowDeleted" msprop:Generator_UserTableName="playlist_song" msprop:Generator_RowChangedName="playlist_songRowChanged" msprop:Generator_RowEvArgName="playlist_songRowChangeEvent" msprop:Generator_RowClassName="playlist_songRow">
+        <xs:element name="playlist_song" msprop:Generator_TableClassName="playlist_songDataTable" msprop:Generator_TableVarName="tableplaylist_song" msprop:Generator_RowChangedName="playlist_songRowChanged" msprop:Generator_TablePropName="playlist_song" msprop:Generator_RowDeletingName="playlist_songRowDeleting" msprop:Generator_RowChangingName="playlist_songRowChanging" msprop:Generator_RowEvHandlerName="playlist_songRowChangeEventHandler" msprop:Generator_RowDeletedName="playlist_songRowDeleted" msprop:Generator_RowClassName="playlist_songRow" msprop:Generator_UserTableName="playlist_song" msprop:Generator_RowEvArgName="playlist_songRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="userplaylistID" msprop:Generator_ColumnVarNameInTable="columnuserplaylistID" msprop:Generator_ColumnPropNameInRow="userplaylistID" msprop:Generator_ColumnPropNameInTable="userplaylistIDColumn" msprop:Generator_UserColumnName="userplaylistID" type="xs:int" />
@@ -617,7 +688,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="songalbum" msprop:Generator_TableClassName="songalbumDataTable" msprop:Generator_TableVarName="tablesongalbum" msprop:Generator_TablePropName="songalbum" msprop:Generator_RowDeletingName="songalbumRowDeleting" msprop:Generator_RowChangingName="songalbumRowChanging" msprop:Generator_RowEvHandlerName="songalbumRowChangeEventHandler" msprop:Generator_RowDeletedName="songalbumRowDeleted" msprop:Generator_UserTableName="songalbum" msprop:Generator_RowChangedName="songalbumRowChanged" msprop:Generator_RowEvArgName="songalbumRowChangeEvent" msprop:Generator_RowClassName="songalbumRow">
+        <xs:element name="songalbum" msprop:Generator_TableClassName="songalbumDataTable" msprop:Generator_TableVarName="tablesongalbum" msprop:Generator_RowChangedName="songalbumRowChanged" msprop:Generator_TablePropName="songalbum" msprop:Generator_RowDeletingName="songalbumRowDeleting" msprop:Generator_RowChangingName="songalbumRowChanging" msprop:Generator_RowEvHandlerName="songalbumRowChangeEventHandler" msprop:Generator_RowDeletedName="songalbumRowDeleted" msprop:Generator_RowClassName="songalbumRow" msprop:Generator_UserTableName="songalbum" msprop:Generator_RowEvArgName="songalbumRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="songAlbumID" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnsongAlbumID" msprop:Generator_ColumnPropNameInRow="songAlbumID" msprop:Generator_ColumnPropNameInTable="songAlbumIDColumn" msprop:Generator_UserColumnName="songAlbumID" type="xs:int" />
@@ -645,7 +716,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="songartist" msprop:Generator_TableClassName="songartistDataTable" msprop:Generator_TableVarName="tablesongartist" msprop:Generator_TablePropName="songartist" msprop:Generator_RowDeletingName="songartistRowDeleting" msprop:Generator_RowChangingName="songartistRowChanging" msprop:Generator_RowEvHandlerName="songartistRowChangeEventHandler" msprop:Generator_RowDeletedName="songartistRowDeleted" msprop:Generator_UserTableName="songartist" msprop:Generator_RowChangedName="songartistRowChanged" msprop:Generator_RowEvArgName="songartistRowChangeEvent" msprop:Generator_RowClassName="songartistRow">
+        <xs:element name="songartist" msprop:Generator_TableClassName="songartistDataTable" msprop:Generator_TableVarName="tablesongartist" msprop:Generator_RowChangedName="songartistRowChanged" msprop:Generator_TablePropName="songartist" msprop:Generator_RowDeletingName="songartistRowDeleting" msprop:Generator_RowChangingName="songartistRowChanging" msprop:Generator_RowEvHandlerName="songartistRowChangeEventHandler" msprop:Generator_RowDeletedName="songartistRowDeleted" msprop:Generator_RowClassName="songartistRow" msprop:Generator_UserTableName="songartist" msprop:Generator_RowEvArgName="songartistRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="songArtistID" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnsongArtistID" msprop:Generator_ColumnPropNameInRow="songArtistID" msprop:Generator_ColumnPropNameInTable="songArtistIDColumn" msprop:Generator_UserColumnName="songArtistID" type="xs:int" />
@@ -666,7 +737,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="songinfo" msprop:Generator_TableClassName="songinfoDataTable" msprop:Generator_TableVarName="tablesonginfo" msprop:Generator_TablePropName="songinfo" msprop:Generator_RowDeletingName="songinfoRowDeleting" msprop:Generator_RowChangingName="songinfoRowChanging" msprop:Generator_RowEvHandlerName="songinfoRowChangeEventHandler" msprop:Generator_RowDeletedName="songinfoRowDeleted" msprop:Generator_UserTableName="songinfo" msprop:Generator_RowChangedName="songinfoRowChanged" msprop:Generator_RowEvArgName="songinfoRowChangeEvent" msprop:Generator_RowClassName="songinfoRow">
+        <xs:element name="songinfo" msprop:Generator_TableClassName="songinfoDataTable" msprop:Generator_TableVarName="tablesonginfo" msprop:Generator_RowChangedName="songinfoRowChanged" msprop:Generator_TablePropName="songinfo" msprop:Generator_RowDeletingName="songinfoRowDeleting" msprop:Generator_RowChangingName="songinfoRowChanging" msprop:Generator_RowEvHandlerName="songinfoRowChangeEventHandler" msprop:Generator_RowDeletedName="songinfoRowDeleted" msprop:Generator_RowClassName="songinfoRow" msprop:Generator_UserTableName="songinfo" msprop:Generator_RowEvArgName="songinfoRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="idSongInfo" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnidSongInfo" msprop:Generator_ColumnPropNameInRow="idSongInfo" msprop:Generator_ColumnPropNameInTable="idSongInfoColumn" msprop:Generator_UserColumnName="idSongInfo" type="xs:int" />
@@ -707,7 +778,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="useraddress" msprop:Generator_TableClassName="useraddressDataTable" msprop:Generator_TableVarName="tableuseraddress" msprop:Generator_TablePropName="useraddress" msprop:Generator_RowDeletingName="useraddressRowDeleting" msprop:Generator_RowChangingName="useraddressRowChanging" msprop:Generator_RowEvHandlerName="useraddressRowChangeEventHandler" msprop:Generator_RowDeletedName="useraddressRowDeleted" msprop:Generator_UserTableName="useraddress" msprop:Generator_RowChangedName="useraddressRowChanged" msprop:Generator_RowEvArgName="useraddressRowChangeEvent" msprop:Generator_RowClassName="useraddressRow">
+        <xs:element name="useraddress" msprop:Generator_TableClassName="useraddressDataTable" msprop:Generator_TableVarName="tableuseraddress" msprop:Generator_RowChangedName="useraddressRowChanged" msprop:Generator_TablePropName="useraddress" msprop:Generator_RowDeletingName="useraddressRowDeleting" msprop:Generator_RowChangingName="useraddressRowChanging" msprop:Generator_RowEvHandlerName="useraddressRowChangeEventHandler" msprop:Generator_RowDeletedName="useraddressRowDeleted" msprop:Generator_RowClassName="useraddressRow" msprop:Generator_UserTableName="useraddress" msprop:Generator_RowEvArgName="useraddressRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="userAddID" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnuserAddID" msprop:Generator_ColumnPropNameInRow="userAddID" msprop:Generator_ColumnPropNameInTable="userAddIDColumn" msprop:Generator_UserColumnName="userAddID" type="xs:int" />
@@ -749,7 +820,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="usercreditcardinfo" msprop:Generator_TableClassName="usercreditcardinfoDataTable" msprop:Generator_TableVarName="tableusercreditcardinfo" msprop:Generator_TablePropName="usercreditcardinfo" msprop:Generator_RowDeletingName="usercreditcardinfoRowDeleting" msprop:Generator_RowChangingName="usercreditcardinfoRowChanging" msprop:Generator_RowEvHandlerName="usercreditcardinfoRowChangeEventHandler" msprop:Generator_RowDeletedName="usercreditcardinfoRowDeleted" msprop:Generator_UserTableName="usercreditcardinfo" msprop:Generator_RowChangedName="usercreditcardinfoRowChanged" msprop:Generator_RowEvArgName="usercreditcardinfoRowChangeEvent" msprop:Generator_RowClassName="usercreditcardinfoRow">
+        <xs:element name="usercreditcardinfo" msprop:Generator_TableClassName="usercreditcardinfoDataTable" msprop:Generator_TableVarName="tableusercreditcardinfo" msprop:Generator_RowChangedName="usercreditcardinfoRowChanged" msprop:Generator_TablePropName="usercreditcardinfo" msprop:Generator_RowDeletingName="usercreditcardinfoRowDeleting" msprop:Generator_RowChangingName="usercreditcardinfoRowChanging" msprop:Generator_RowEvHandlerName="usercreditcardinfoRowChangeEventHandler" msprop:Generator_RowDeletedName="usercreditcardinfoRowDeleted" msprop:Generator_RowClassName="usercreditcardinfoRow" msprop:Generator_UserTableName="usercreditcardinfo" msprop:Generator_RowEvArgName="usercreditcardinfoRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="userCreditCardID" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnuserCreditCardID" msprop:Generator_ColumnPropNameInRow="userCreditCardID" msprop:Generator_ColumnPropNameInTable="userCreditCardIDColumn" msprop:Generator_UserColumnName="userCreditCardID" type="xs:int" />
@@ -785,7 +856,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="userinfo" msprop:Generator_TableClassName="userinfoDataTable" msprop:Generator_TableVarName="tableuserinfo" msprop:Generator_TablePropName="userinfo" msprop:Generator_RowDeletingName="userinfoRowDeleting" msprop:Generator_RowChangingName="userinfoRowChanging" msprop:Generator_RowEvHandlerName="userinfoRowChangeEventHandler" msprop:Generator_RowDeletedName="userinfoRowDeleted" msprop:Generator_UserTableName="userinfo" msprop:Generator_RowChangedName="userinfoRowChanged" msprop:Generator_RowEvArgName="userinfoRowChangeEvent" msprop:Generator_RowClassName="userinfoRow">
+        <xs:element name="userinfo" msprop:Generator_TableClassName="userinfoDataTable" msprop:Generator_TableVarName="tableuserinfo" msprop:Generator_RowChangedName="userinfoRowChanged" msprop:Generator_TablePropName="userinfo" msprop:Generator_RowDeletingName="userinfoRowDeleting" msprop:Generator_RowChangingName="userinfoRowChanging" msprop:Generator_RowEvHandlerName="userinfoRowChangeEventHandler" msprop:Generator_RowDeletedName="userinfoRowDeleted" msprop:Generator_RowClassName="userinfoRow" msprop:Generator_UserTableName="userinfo" msprop:Generator_RowEvArgName="userinfoRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="iduserInfo" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columniduserInfo" msprop:Generator_ColumnPropNameInRow="iduserInfo" msprop:Generator_ColumnPropNameInTable="iduserInfoColumn" msprop:Generator_UserColumnName="iduserInfo" type="xs:int" />
@@ -823,7 +894,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="userplaylist" msprop:Generator_TableClassName="userplaylistDataTable" msprop:Generator_TableVarName="tableuserplaylist" msprop:Generator_TablePropName="userplaylist" msprop:Generator_RowDeletingName="userplaylistRowDeleting" msprop:Generator_RowChangingName="userplaylistRowChanging" msprop:Generator_RowEvHandlerName="userplaylistRowChangeEventHandler" msprop:Generator_RowDeletedName="userplaylistRowDeleted" msprop:Generator_UserTableName="userplaylist" msprop:Generator_RowChangedName="userplaylistRowChanged" msprop:Generator_RowEvArgName="userplaylistRowChangeEvent" msprop:Generator_RowClassName="userplaylistRow">
+        <xs:element name="userplaylist" msprop:Generator_TableClassName="userplaylistDataTable" msprop:Generator_TableVarName="tableuserplaylist" msprop:Generator_RowChangedName="userplaylistRowChanged" msprop:Generator_TablePropName="userplaylist" msprop:Generator_RowDeletingName="userplaylistRowDeleting" msprop:Generator_RowChangingName="userplaylistRowChanging" msprop:Generator_RowEvHandlerName="userplaylistRowChangeEventHandler" msprop:Generator_RowDeletedName="userplaylistRowDeleted" msprop:Generator_RowClassName="userplaylistRow" msprop:Generator_UserTableName="userplaylist" msprop:Generator_RowEvArgName="userplaylistRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="userplaylistID" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnuserplaylistID" msprop:Generator_ColumnPropNameInRow="userplaylistID" msprop:Generator_ColumnPropNameInTable="userplaylistIDColumn" msprop:Generator_UserColumnName="userplaylistID" type="xs:int" />
@@ -837,11 +908,175 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="userpurchases" msprop:Generator_TableClassName="userpurchasesDataTable" msprop:Generator_TableVarName="tableuserpurchases" msprop:Generator_TablePropName="userpurchases" msprop:Generator_RowDeletingName="userpurchasesRowDeleting" msprop:Generator_RowChangingName="userpurchasesRowChanging" msprop:Generator_RowEvHandlerName="userpurchasesRowChangeEventHandler" msprop:Generator_RowDeletedName="userpurchasesRowDeleted" msprop:Generator_UserTableName="userpurchases" msprop:Generator_RowChangedName="userpurchasesRowChanged" msprop:Generator_RowEvArgName="userpurchasesRowChangeEvent" msprop:Generator_RowClassName="userpurchasesRow">
+        <xs:element name="userpurchases" msprop:Generator_TableClassName="userpurchasesDataTable" msprop:Generator_TableVarName="tableuserpurchases" msprop:Generator_RowChangedName="userpurchasesRowChanged" msprop:Generator_TablePropName="userpurchases" msprop:Generator_RowDeletingName="userpurchasesRowDeleting" msprop:Generator_RowChangingName="userpurchasesRowChanging" msprop:Generator_RowEvHandlerName="userpurchasesRowChangeEventHandler" msprop:Generator_RowDeletedName="userpurchasesRowDeleted" msprop:Generator_RowClassName="userpurchasesRow" msprop:Generator_UserTableName="userpurchases" msprop:Generator_RowEvArgName="userpurchasesRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="userPurchasesID" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnuserPurchasesID" msprop:Generator_ColumnPropNameInRow="userPurchasesID" msprop:Generator_ColumnPropNameInTable="userPurchasesIDColumn" msprop:Generator_UserColumnName="userPurchasesID" type="xs:int" />
               <xs:element name="idSongInfo" msprop:Generator_ColumnVarNameInTable="columnidSongInfo" msprop:Generator_ColumnPropNameInRow="idSongInfo" msprop:Generator_ColumnPropNameInTable="idSongInfoColumn" msprop:Generator_UserColumnName="idSongInfo" type="xs:int" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="playlist_view" msprop:Generator_TableClassName="playlist_viewDataTable" msprop:Generator_TableVarName="tableplaylist_view" msprop:Generator_TablePropName="playlist_view" msprop:Generator_RowDeletingName="playlist_viewRowDeleting" msprop:Generator_RowChangingName="playlist_viewRowChanging" msprop:Generator_RowEvHandlerName="playlist_viewRowChangeEventHandler" msprop:Generator_RowDeletedName="playlist_viewRowDeleted" msprop:Generator_UserTableName="playlist_view" msprop:Generator_RowChangedName="playlist_viewRowChanged" msprop:Generator_RowEvArgName="playlist_viewRowChangeEvent" msprop:Generator_RowClassName="playlist_viewRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="userplaylistNAME" msprop:Generator_ColumnVarNameInTable="columnuserplaylistNAME" msprop:Generator_ColumnPropNameInRow="userplaylistNAME" msprop:Generator_ColumnPropNameInTable="userplaylistNAMEColumn" msprop:Generator_UserColumnName="userplaylistNAME" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="45" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Title" msprop:Generator_ColumnVarNameInTable="columnTitle" msprop:Generator_ColumnPropNameInRow="Title" msprop:Generator_ColumnPropNameInTable="TitleColumn" msprop:Generator_UserColumnName="Title">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="45" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ArtistName" msprop:Generator_ColumnVarNameInTable="columnArtistName" msprop:Generator_ColumnPropNameInRow="ArtistName" msprop:Generator_ColumnPropNameInTable="ArtistNameColumn" msprop:Generator_UserColumnName="ArtistName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="45" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="songAlbumName" msprop:Generator_ColumnVarNameInTable="columnsongAlbumName" msprop:Generator_ColumnPropNameInRow="songAlbumName" msprop:Generator_ColumnPropNameInTable="songAlbumNameColumn" msprop:Generator_UserColumnName="songAlbumName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="45" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="PlayCount" msprop:Generator_ColumnVarNameInTable="columnPlayCount" msprop:Generator_ColumnPropNameInRow="PlayCount" msprop:Generator_ColumnPropNameInTable="PlayCountColumn" msprop:Generator_UserColumnName="PlayCount" type="xs:int" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="song_view" msprop:Generator_TableClassName="song_viewDataTable" msprop:Generator_TableVarName="tablesong_view" msprop:Generator_TablePropName="song_view" msprop:Generator_RowDeletingName="song_viewRowDeleting" msprop:Generator_RowChangingName="song_viewRowChanging" msprop:Generator_RowEvHandlerName="song_viewRowChangeEventHandler" msprop:Generator_RowDeletedName="song_viewRowDeleted" msprop:Generator_UserTableName="song_view" msprop:Generator_RowChangedName="song_viewRowChanged" msprop:Generator_RowEvArgName="song_viewRowChangeEvent" msprop:Generator_RowClassName="song_viewRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Artist" msprop:Generator_ColumnVarNameInTable="columnArtist" msprop:Generator_ColumnPropNameInRow="Artist" msprop:Generator_ColumnPropNameInTable="ArtistColumn" msprop:Generator_UserColumnName="Artist" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="45" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Title" msprop:Generator_ColumnVarNameInTable="columnTitle" msprop:Generator_ColumnPropNameInRow="Title" msprop:Generator_ColumnPropNameInTable="TitleColumn" msprop:Generator_UserColumnName="Title">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="45" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Genre" msprop:Generator_ColumnVarNameInTable="columnGenre" msprop:Generator_ColumnPropNameInRow="Genre" msprop:Generator_ColumnPropNameInTable="GenreColumn" msprop:Generator_UserColumnName="Genre" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="45" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Album" msprop:Generator_ColumnVarNameInTable="columnAlbum" msprop:Generator_ColumnPropNameInRow="Album" msprop:Generator_ColumnPropNameInTable="AlbumColumn" msprop:Generator_UserColumnName="Album" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="45" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Location" msprop:Generator_ColumnVarNameInTable="columnLocation" msprop:Generator_ColumnPropNameInRow="Location" msprop:Generator_ColumnPropNameInTable="LocationColumn" msprop:Generator_UserColumnName="Location" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="45" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Album_x0020_Track" msprop:Generator_ColumnVarNameInTable="columnAlbum_Track" msprop:Generator_ColumnPropNameInRow="Album_Track" msprop:Generator_ColumnPropNameInTable="Album_TrackColumn" msprop:Generator_UserColumnName="Album Track" type="xs:int" minOccurs="0" />
+              <xs:element name="Year" msprop:Generator_ColumnVarNameInTable="columnYear" msprop:Generator_ColumnPropNameInRow="Year" msprop:Generator_ColumnPropNameInTable="YearColumn" msprop:Generator_UserColumnName="Year" type="xs:int" minOccurs="0" />
+              <xs:element name="Comment" msprop:Generator_ColumnVarNameInTable="columnComment" msprop:Generator_ColumnPropNameInRow="Comment" msprop:Generator_ColumnPropNameInTable="CommentColumn" msprop:Generator_UserColumnName="Comment" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="45" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Playcount" msprop:Generator_ColumnVarNameInTable="columnPlaycount" msprop:Generator_ColumnPropNameInRow="Playcount" msprop:Generator_ColumnPropNameInTable="PlaycountColumn" msprop:Generator_UserColumnName="Playcount" type="xs:int" minOccurs="0" />
+              <xs:element name="BPM" msprop:Generator_ColumnVarNameInTable="columnBPM" msprop:Generator_ColumnPropNameInRow="BPM" msprop:Generator_ColumnPropNameInTable="BPMColumn" msprop:Generator_UserColumnName="BPM" type="xs:int" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="user_view" msprop:Generator_TableClassName="user_viewDataTable" msprop:Generator_TableVarName="tableuser_view" msprop:Generator_TablePropName="user_view" msprop:Generator_RowDeletingName="user_viewRowDeleting" msprop:Generator_RowChangingName="user_viewRowChanging" msprop:Generator_RowEvHandlerName="user_viewRowChangeEventHandler" msprop:Generator_RowDeletedName="user_viewRowDeleted" msprop:Generator_UserTableName="user_view" msprop:Generator_RowChangedName="user_viewRowChanged" msprop:Generator_RowEvArgName="user_viewRowChangeEvent" msprop:Generator_RowClassName="user_viewRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="First_x0020_Name" msprop:Generator_ColumnVarNameInTable="columnFirst_Name" msprop:Generator_ColumnPropNameInRow="First_Name" msprop:Generator_ColumnPropNameInTable="First_NameColumn" msprop:Generator_UserColumnName="First Name" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="45" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Last_x0020_Name" msprop:Generator_ColumnVarNameInTable="columnLast_Name" msprop:Generator_ColumnPropNameInRow="Last_Name" msprop:Generator_ColumnPropNameInTable="Last_NameColumn" msprop:Generator_UserColumnName="Last Name" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="45" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Email" msprop:Generator_ColumnVarNameInTable="columnEmail" msprop:Generator_ColumnPropNameInRow="Email" msprop:Generator_ColumnPropNameInTable="EmailColumn" msprop:Generator_UserColumnName="Email" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Phone_x0020_Number" msprop:Generator_ColumnVarNameInTable="columnPhone_Number" msprop:Generator_ColumnPropNameInRow="Phone_Number" msprop:Generator_ColumnPropNameInTable="Phone_NumberColumn" msprop:Generator_UserColumnName="Phone Number" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="City" msprop:Generator_ColumnVarNameInTable="columnCity" msprop:Generator_ColumnPropNameInRow="City" msprop:Generator_ColumnPropNameInTable="CityColumn" msprop:Generator_UserColumnName="City" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="45" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="State" msprop:Generator_ColumnVarNameInTable="columnState" msprop:Generator_ColumnPropNameInRow="State" msprop:Generator_ColumnPropNameInTable="StateColumn" msprop:Generator_UserColumnName="State" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="45" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Country" msprop:Generator_ColumnVarNameInTable="columnCountry" msprop:Generator_ColumnPropNameInRow="Country" msprop:Generator_ColumnPropNameInTable="CountryColumn" msprop:Generator_UserColumnName="Country" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="45" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Name_x0020_on_x0020_Card" msprop:Generator_ColumnVarNameInTable="columnName_on_Card" msprop:Generator_ColumnPropNameInRow="Name_on_Card" msprop:Generator_ColumnPropNameInTable="Name_on_CardColumn" msprop:Generator_UserColumnName="Name on Card" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Card_x0020_Exp__x0020_Date" msprop:Generator_ColumnVarNameInTable="columnCard_Exp__Date" msprop:Generator_ColumnPropNameInRow="Card_Exp__Date" msprop:Generator_ColumnPropNameInTable="Card_Exp__DateColumn" msprop:Generator_UserColumnName="Card Exp_ Date" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="7" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Card_x0020_Type" msprop:Generator_ColumnVarNameInTable="columnCard_Type" msprop:Generator_ColumnPropNameInRow="Card_Type" msprop:Generator_ColumnPropNameInTable="Card_TypeColumn" msprop:Generator_UserColumnName="Card Type" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="45" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Purchases_x0020_ID" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnPurchases_ID" msprop:Generator_ColumnPropNameInRow="Purchases_ID" msprop:Generator_ColumnPropNameInTable="Purchases_IDColumn" msprop:Generator_UserColumnName="Purchases ID" type="xs:int" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
@@ -884,17 +1119,21 @@
       <xs:selector xpath=".//mstns:userpurchases" />
       <xs:field xpath="mstns:userPurchasesID" />
     </xs:unique>
+    <xs:unique name="user_view_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:user_view" />
+      <xs:field xpath="mstns:Purchases_x0020_ID" />
+    </xs:unique>
   </xs:element>
   <xs:annotation>
     <xs:appinfo>
-      <msdata:Relationship name="idSong" msdata:parent="songinfo" msdata:child="playlist_song" msdata:parentkey="idSongInfo" msdata:childkey="idSongInfo" msprop:Generator_UserChildTable="playlist_song" msprop:Generator_ChildPropName="Getplaylist_songRows" msprop:Generator_UserRelationName="idSong" msprop:Generator_RelationVarName="relationidSong" msprop:Generator_UserParentTable="songinfo" msprop:Generator_ParentPropName="songinfoRow" />
-      <msdata:Relationship name="playlistID" msdata:parent="userplaylist" msdata:child="playlist_song" msdata:parentkey="userplaylistID" msdata:childkey="userplaylistID" msprop:Generator_UserChildTable="playlist_song" msprop:Generator_ChildPropName="Getplaylist_songRows" msprop:Generator_UserRelationName="playlistID" msprop:Generator_RelationVarName="relationplaylistID" msprop:Generator_UserParentTable="userplaylist" msprop:Generator_ParentPropName="userplaylistRow" />
-      <msdata:Relationship name="songAlbumID" msdata:parent="songalbum" msdata:child="songinfo" msdata:parentkey="songAlbumID" msdata:childkey="Album" msprop:Generator_UserChildTable="songinfo" msprop:Generator_ChildPropName="GetsonginfoRows" msprop:Generator_UserRelationName="songAlbumID" msprop:Generator_ParentPropName="songalbumRow" msprop:Generator_RelationVarName="relationsongAlbumID" msprop:Generator_UserParentTable="songalbum" />
-      <msdata:Relationship name="songArtist" msdata:parent="songartist" msdata:child="songinfo" msdata:parentkey="songArtistID" msdata:childkey="Artist" msprop:Generator_UserChildTable="songinfo" msprop:Generator_ChildPropName="GetsonginfoRows" msprop:Generator_UserRelationName="songArtist" msprop:Generator_ParentPropName="songartistRow" msprop:Generator_RelationVarName="relationsongArtist" msprop:Generator_UserParentTable="songartist" />
-      <msdata:Relationship name="uerAddID" msdata:parent="useraddress" msdata:child="userinfo" msdata:parentkey="userAddID" msdata:childkey="userAddID" msprop:Generator_UserChildTable="userinfo" msprop:Generator_ChildPropName="GetuserinfoRows" msprop:Generator_UserRelationName="uerAddID" msprop:Generator_ParentPropName="useraddressRow" msprop:Generator_RelationVarName="relationuerAddID" msprop:Generator_UserParentTable="useraddress" />
-      <msdata:Relationship name="userCreditCardID" msdata:parent="usercreditcardinfo" msdata:child="userinfo" msdata:parentkey="userCreditCardID" msdata:childkey="userCreditCardID" msprop:Generator_UserChildTable="userinfo" msprop:Generator_ChildPropName="GetuserinfoRows" msprop:Generator_UserRelationName="userCreditCardID" msprop:Generator_ParentPropName="usercreditcardinfoRow" msprop:Generator_RelationVarName="relationuserCreditCardID" msprop:Generator_UserParentTable="usercreditcardinfo" />
-      <msdata:Relationship name="userPurchasesID" msdata:parent="userpurchases" msdata:child="userinfo" msdata:parentkey="userPurchasesID" msdata:childkey="userPurchasesID" msprop:Generator_UserChildTable="userinfo" msprop:Generator_ChildPropName="GetuserinfoRows" msprop:Generator_UserRelationName="userPurchasesID" msprop:Generator_RelationVarName="relationuserPurchasesID" msprop:Generator_UserParentTable="userpurchases" msprop:Generator_ParentPropName="userpurchasesRow" />
-      <msdata:Relationship name="idSongInfo" msdata:parent="songinfo" msdata:child="userpurchases" msdata:parentkey="idSongInfo" msdata:childkey="idSongInfo" msprop:Generator_UserChildTable="userpurchases" msprop:Generator_ChildPropName="GetuserpurchasesRows" msprop:Generator_UserRelationName="idSongInfo" msprop:Generator_ParentPropName="songinfoRow" msprop:Generator_RelationVarName="relationidSongInfo" msprop:Generator_UserParentTable="songinfo" />
+      <msdata:Relationship name="idSong" msdata:parent="songinfo" msdata:child="playlist_song" msdata:parentkey="idSongInfo" msdata:childkey="idSongInfo" msprop:Generator_UserChildTable="playlist_song" msprop:Generator_ChildPropName="Getplaylist_songRows" msprop:Generator_UserRelationName="idSong" msprop:Generator_ParentPropName="songinfoRow" msprop:Generator_RelationVarName="relationidSong" msprop:Generator_UserParentTable="songinfo" />
+      <msdata:Relationship name="playlistID" msdata:parent="userplaylist" msdata:child="playlist_song" msdata:parentkey="userplaylistID" msdata:childkey="userplaylistID" msprop:Generator_UserChildTable="playlist_song" msprop:Generator_ChildPropName="Getplaylist_songRows" msprop:Generator_UserRelationName="playlistID" msprop:Generator_ParentPropName="userplaylistRow" msprop:Generator_RelationVarName="relationplaylistID" msprop:Generator_UserParentTable="userplaylist" />
+      <msdata:Relationship name="songAlbumID" msdata:parent="songalbum" msdata:child="songinfo" msdata:parentkey="songAlbumID" msdata:childkey="Album" msprop:Generator_UserChildTable="songinfo" msprop:Generator_ChildPropName="GetsonginfoRows" msprop:Generator_UserRelationName="songAlbumID" msprop:Generator_RelationVarName="relationsongAlbumID" msprop:Generator_UserParentTable="songalbum" msprop:Generator_ParentPropName="songalbumRow" />
+      <msdata:Relationship name="songArtist" msdata:parent="songartist" msdata:child="songinfo" msdata:parentkey="songArtistID" msdata:childkey="Artist" msprop:Generator_UserChildTable="songinfo" msprop:Generator_ChildPropName="GetsonginfoRows" msprop:Generator_UserRelationName="songArtist" msprop:Generator_RelationVarName="relationsongArtist" msprop:Generator_UserParentTable="songartist" msprop:Generator_ParentPropName="songartistRow" />
+      <msdata:Relationship name="uerAddID" msdata:parent="useraddress" msdata:child="userinfo" msdata:parentkey="userAddID" msdata:childkey="userAddID" msprop:Generator_UserChildTable="userinfo" msprop:Generator_ChildPropName="GetuserinfoRows" msprop:Generator_UserRelationName="uerAddID" msprop:Generator_RelationVarName="relationuerAddID" msprop:Generator_UserParentTable="useraddress" msprop:Generator_ParentPropName="useraddressRow" />
+      <msdata:Relationship name="userCreditCardID" msdata:parent="usercreditcardinfo" msdata:child="userinfo" msdata:parentkey="userCreditCardID" msdata:childkey="userCreditCardID" msprop:Generator_UserChildTable="userinfo" msprop:Generator_ChildPropName="GetuserinfoRows" msprop:Generator_UserRelationName="userCreditCardID" msprop:Generator_RelationVarName="relationuserCreditCardID" msprop:Generator_UserParentTable="usercreditcardinfo" msprop:Generator_ParentPropName="usercreditcardinfoRow" />
+      <msdata:Relationship name="userPurchasesID" msdata:parent="userpurchases" msdata:child="userinfo" msdata:parentkey="userPurchasesID" msdata:childkey="userPurchasesID" msprop:Generator_UserChildTable="userinfo" msprop:Generator_ChildPropName="GetuserinfoRows" msprop:Generator_UserRelationName="userPurchasesID" msprop:Generator_ParentPropName="userpurchasesRow" msprop:Generator_RelationVarName="relationuserPurchasesID" msprop:Generator_UserParentTable="userpurchases" />
+      <msdata:Relationship name="idSongInfo" msdata:parent="songinfo" msdata:child="userpurchases" msdata:parentkey="idSongInfo" msdata:childkey="idSongInfo" msprop:Generator_UserChildTable="userpurchases" msprop:Generator_ChildPropName="GetuserpurchasesRows" msprop:Generator_UserRelationName="idSongInfo" msprop:Generator_RelationVarName="relationidSongInfo" msprop:Generator_UserParentTable="songinfo" msprop:Generator_ParentPropName="songinfoRow" />
     </xs:appinfo>
   </xs:annotation>
 </xs:schema>

@@ -4,3 +4,8 @@ C:\Users\joseph.caruso\Documents\GitHub\MusicDatabase\TeamMusicPlayer\TeamMusicP
 C:\Users\joseph.caruso\Documents\GitHub\MusicDatabase\TeamMusicPlayer\TeamMusicPlayer\obj\x86\Debug\TeamMusicPlayer.csprojResolveAssemblyReference.cache
 C:\Users\joseph.caruso\Documents\GitHub\MusicDatabase\TeamMusicPlayer\TeamMusicPlayer\obj\x86\Debug\TeamMusicPlayer.exe
 C:\Users\joseph.caruso\Documents\GitHub\MusicDatabase\TeamMusicPlayer\TeamMusicPlayer\obj\x86\Debug\TeamMusicPlayer.pdb
+C:\Users\joseph.caruso\Desktop\MusicDatabase\TeamMusicPlayer\TeamMusicPlayer\bin\Debug\TeamMusicPlayer.exe.config
+C:\Users\joseph.caruso\Desktop\MusicDatabase\TeamMusicPlayer\TeamMusicPlayer\bin\Debug\TeamMusicPlayer.exe
+C:\Users\joseph.caruso\Desktop\MusicDatabase\TeamMusicPlayer\TeamMusicPlayer\bin\Debug\TeamMusicPlayer.pdb
+C:\Users\joseph.caruso\Desktop\MusicDatabase\TeamMusicPlayer\TeamMusicPlayer\obj\x86\Debug\TeamMusicPlayer.exe
+C:\Users\joseph.caruso\Desktop\MusicDatabase\TeamMusicPlayer\TeamMusicPlayer\obj\x86\Debug\TeamMusicPlayer.pdb
