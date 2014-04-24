@@ -68,10 +68,50 @@ namespace backleft_music_UI
 
             if (allFilled)
             {
-                var user =
-                    (from c in db.userinfo
-                     where c.iduserInfo == 1 // TODO: fix this (userID)
-                     select c).First();
+                User user;
+                var sql = string.Format("SELECT * FROM userinfo WHERE iduserInfo = {0}", 1);
+                //var connectionString = "server=champlainmysql.cabect4hsdzs.us-east-1.rds.amazonaws.com;user id=BackLeft;password=Champlain123;persistsecurityinfo=True;database=mydb";
+                var connectionString = "Server = champlainmysql.cabect4hsdzs.us-east-1.rds.amazonaws.com; Database = mydb; Uid = BackLeft; Pwd = Champlain123;";
+                var command = new System.Data.SqlClient.SqlCommand(sql, new System.Data.SqlClient.SqlConnection(connectionString));
+
+                using (var connection = command.Connection)
+                {
+                    connection.Open();
+
+                    using (var reader = command.ExecuteReader(System.Data.CommandBehavior.CloseConnection))
+                    {
+                        reader.Read();
+
+                        user = new User()
+                        {
+                            firstName = reader["userFirstName"].ToString(),
+                            lastName = reader["userLastName"].ToString(),
+                            email = reader["userEmail"].ToString(),
+                            phoneNumber = reader["userPhoneNumber"].ToString()
+                        };
+
+                    }
+
+                    connection.Close();
+
+                }
+                user.purchasesID = 1;
+
+                var sql2 = string.Format("INSERT INTO Message (userPurcasesID, idSongInfo) VALUES ('{0}', '{1}')", user.purchasesID, songID);
+
+                var command2 = new System.Data.SqlClient.SqlCommand(sql2, new System.Data.SqlClient.SqlConnection(connectionString));
+
+                using (var connection = command2.Connection)
+                {
+                    connection.Open();
+                    command.ExecuteNonQuery();
+                    connection.Close();
+                }
+
+                //var user =
+                    //(from c in db.userinfo
+                     //where c.iduserInfo == 1 // TODO: fix this (userID)
+                     //select c).First();
 
                 // TODO: add song to user's prurchases table.
 

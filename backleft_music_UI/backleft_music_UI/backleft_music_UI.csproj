@@ -105,6 +105,7 @@
     <Compile Include="songinfo.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="User.cs" />
     <Compile Include="useraddress.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
