@@ -8,6 +8,21 @@ namespace backleft_music_UI
 {
     public class User
     {
+        private static User instance;
+        private User() { }
+
+        public static User Instance
+        {
+            get
+            {
+                if (instance == null)
+                {
+                    instance = new User();
+                }
+                return instance;
+            }
+        }
+
         public int userID { get; set; }
         public string firstName { get; set; }
         public string lastName { get; set; }

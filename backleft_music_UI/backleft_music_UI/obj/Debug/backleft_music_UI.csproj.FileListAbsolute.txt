@@ -60,3 +60,4 @@ C:\Users\alexander.martens\Desktop\MusicDatabase\trunk\backleft_music_UI\backlef
 C:\Users\alexander.martens\Desktop\MusicDatabase\trunk\backleft_music_UI\backleft_music_UI\bin\Debug\EntityFramework.dll
 C:\Users\alexander.martens\Desktop\MusicDatabase\trunk\backleft_music_UI\backleft_music_UI\bin\Debug\EntityFramework.xml
 C:\Users\alexander.martens\Desktop\MusicDatabase\trunk\backleft_music_UI\backleft_music_UI\bin\Debug\MySql.Data.Entity.EF6.dll
+C:\Users\James.Peck\Desktop\MusicDatabase\backleft_music_UI\backleft_music_UI\bin\Debug\MySql.Data.Entity.EF6.dll

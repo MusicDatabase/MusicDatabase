@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -36,6 +37,16 @@ namespace backleft_music_UI
         private void button1_Click(object sender, EventArgs e)
         {
             // TODO: SQL INSERT new user.
+            string sql2 = "INSERT INTO userinfo (userFirstName, userLastName, userEmail, userPhoneNumber) VALUES('" + firstNameTextBox.Text + "', '" + lastNameTextBox.Text + "', '" + emailTextBox.Text + "', '" + phoneTextBox.Text + "')";
+
+            var connectionString = "Server = champlainmysql.cabect4hsdzs.us-east-1.rds.amazonaws.com; Database = mydb; Uid = BackLeft; Pwd = Champlain123;";
+            MySqlConnection connection = new MySqlConnection(connectionString);
+
+            MySqlCommand cmd = new MySqlCommand(sql2, connection);
+            
+            connection.Open();
+            cmd.ExecuteNonQuery();
+
             this.Close();
         }
     }

@@ -13,6 +13,8 @@ namespace backleft_music_UI
 {
     public partial class libForm : Form
     {
+        public bool loggedIn = false;
+
         public libForm()
         {
             InitializeComponent();
@@ -89,63 +91,47 @@ namespace backleft_music_UI
         private void loginButton_Click(object sender, EventArgs e)
         {
             string email = loginTextBox.Text;
+            string command = "SELECT * FROM userinfo WHERE userEmail = '" + email + "'";
+           
             
-            User user;
 
-            // var sql = string.Format("SELECT *");
             var connectionString = "Server = champlainmysql.cabect4hsdzs.us-east-1.rds.amazonaws.com; Database = mydb; Uid = BackLeft; Pwd = Champlain123;";
             MySqlConnection connection = new MySqlConnection(connectionString);
-            //var sql = new MySqlCommand("SELECT * FROM userinfo WHERE iduserInfo = 1", connection);
-            var sql2 = new MySqlCommand("SELECT * FROM userinfo WHERE userEmail = 'email'", connection);
-            //var sql3 =  new MySqlCommand("select exists (select * from userinfo where userEmail = 'email')", connection);
-            //string sql3 = "select exists (select * from userinfo where userEmail = 'email')";
-            //var sql4 = new MySqlCommand("Select Case count(iduserinfo) when 1 then true else false end From mydb.userinfo Where userEmail = 'email'", connection);
+            var sql2 = new MySqlCommand(command, connection);
 
             connection.Open();
-
-            //MySqlDataReader reader = (MySqlCommand)sql3.ExecuteReader();
-           // reader.Read();
-           // reader.GetBoolean(0);
 
 
             using (MySqlDataReader reader = sql2.ExecuteReader())
             {
                 reader.Read();
-                if (reader.IsDBNull(0))
+                if (reader.HasRows)
                 {
-                    Console.WriteLine("Yo!");
-                }
+                    //User.Instance
+                   // {
+                        User.Instance.firstName = reader["userFirstName"].ToString();
+                        User.Instance.lastName = reader["userLastName"].ToString();
+                        User.Instance.email = reader["userEmail"].ToString();
+                        User.Instance.phoneNumber = reader["userPhoneNumber"].ToString();
+                        User.Instance.addressID = (int)reader["userAddID"];
+                        User.Instance.purchasesID = (int)reader["userPurchasesID"];
+                        User.Instance.creditCardID = (int)reader["userCreditCardID"];
+                        User.Instance.userID = (int)reader["iduserInfo"];
+                   // };
+                    connection.Close();
 
-                user = new User()
-                    {
-                        firstName = reader["userFirstName"].ToString(),
-                        lastName = reader["userLastName"].ToString(),
-                        email = reader["userEmail"].ToString(),
-                        phoneNumber = reader["userPhoneNumber"].ToString(),
-                        addressID = (int)reader["userAddID"],
-                        purchasesID = (int)reader["userPurchasesID"],
-                        creditCardID = (int)reader["userCreditCardID"],
-                        userID = (int)reader["iduserInfo"]
-                    };  
-
-                if (user.firstName != null)
-                {
-                    Console.WriteLine("HE EXISTS!");
+                    loggedIn = true;
+                    //return user;
                 }
                 else
                 {
                     var form = new Form3(email);
                     form.Show();
+                    connection.Close();
+                    loggedIn = true;
+                    //return null;
                 }
-
-
-            }
-         
-
-
-
-            connection.Close();
-        
+            }       
         }
 
         private void song_viewDataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)

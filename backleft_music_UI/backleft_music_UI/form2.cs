@@ -76,7 +76,8 @@ namespace backleft_music_UI
                // var sql = string.Format("SELECT *");
                 var connectionString = "Server = champlainmysql.cabect4hsdzs.us-east-1.rds.amazonaws.com; Database = mydb; Uid = BackLeft; Pwd = Champlain123;";
                connection = new MySqlConnection(connectionString);
-               var sql = new MySqlCommand("SELECT * FROM userinfo WHERE iduserInfo = 1", connection);
+                string cmd = "SELECT * FROM userinfo WHERE iduserInfo = " + User.Instance.userID;
+               var sql = new MySqlCommand(cmd, connection);
 
                {
                    connection.Open();
@@ -85,29 +86,37 @@ namespace backleft_music_UI
                    {
                        reader.Read();
 
-                       user = new User()
-                       {
-                           firstName = reader["userFirstName"].ToString(),
-                           lastName = reader["userLastName"].ToString(),
-                           email = reader["userEmail"].ToString(),
-                           phoneNumber = reader["userPhoneNumber"].ToString(),
-                           addressID = (int)reader["userAddID"],
-                           purchasesID = (int)reader["userPurchasesID"],
-                           creditCardID = (int)reader["userCreditCardID"],
-                           userID = (int)reader["iduserInfo"]
-                       };
+                       //user = new User()
+                       //{
+                       //    firstName = reader["userFirstName"].ToString(),
+                       //    lastName = reader["userLastName"].ToString(),
+                       //    email = reader["userEmail"].ToString(),
+                       //    phoneNumber = reader["userPhoneNumber"].ToString(),
+                       //    addressID = (int)reader["userAddID"],
+                       //    purchasesID = (int)reader["userPurchasesID"],
+                       //    creditCardID = (int)reader["userCreditCardID"],
+                       //    userID = (int)reader["iduserInfo"]
+                       //};
+                       //User.Instance.firstName = reader["userFirstName"].ToString();
+                       //User.Instance.lastName = reader["userLastName"].ToString();
+                       //User.Instance.email = reader["userEmail"].ToString();
+                       //User.Instance.phoneNumber = reader["userPhoneNumber"].ToString();
+                       //User.Instance.addressID = (int)reader["userAddID"];
+                       //User.Instance.purchasesID = (int)reader["userPurchasesID"];
+                       //User.Instance.creditCardID = (int)reader["userCreditCardID"];
+                       //User.Instance.userID = (int)reader["iduserInfo"];
                      
-                       Console.WriteLine("Name: " + user.firstName);
+                       //Console.WriteLine("Name: " +  User.Instance.firstName);
                    }
-                   string sql2 = "INSERT INTO userpurchases (userPurchasesID, idSongInfo) VALUES('user.purchasesID', 'songID')";
+                   string sql2 = "INSERT INTO userpurchases (userPurchasesID, idSongInfo) VALUES('" + User.Instance.purchasesID + "', '" + songID + "')";
                    //open connection
                   // if (connection.Open() == true)
                   // {
                        //create command and assign the query and connection from the constructor
-                       MySqlCommand cmd = new MySqlCommand(sql2, connection);
+                       MySqlCommand cmd2 = new MySqlCommand(sql2, connection);
 
                        //Execute command
-                       cmd.ExecuteNonQuery();
+                       cmd2.ExecuteNonQuery();
 
                        
                        //close connection
