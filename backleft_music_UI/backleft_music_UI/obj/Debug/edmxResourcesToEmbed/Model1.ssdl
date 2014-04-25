@@ -1,0 +1,232 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="mydbModel.Store" Alias="Self" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.6" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="mydbModelStoreContainer">
+    <EntitySet Name="playlist_song" EntityType="mydbModel.Store.playlist_song" store:Type="Tables" Schema="mydb" />
+    <EntitySet Name="songalbum" EntityType="mydbModel.Store.songalbum" store:Type="Tables" Schema="mydb" />
+    <EntitySet Name="songartist" EntityType="mydbModel.Store.songartist" store:Type="Tables" Schema="mydb" />
+    <EntitySet Name="songinfo" EntityType="mydbModel.Store.songinfo" store:Type="Tables" Schema="mydb" />
+    <EntitySet Name="useraddress" EntityType="mydbModel.Store.useraddress" store:Type="Tables" Schema="mydb" />
+    <EntitySet Name="usercreditcardinfo" EntityType="mydbModel.Store.usercreditcardinfo" store:Type="Tables" Schema="mydb" />
+    <EntitySet Name="userinfo" EntityType="mydbModel.Store.userinfo" store:Type="Tables" Schema="mydb" />
+    <EntitySet Name="userplaylist" EntityType="mydbModel.Store.userplaylist" store:Type="Tables" Schema="mydb" />
+    <EntitySet Name="userpurchases" EntityType="mydbModel.Store.userpurchases" store:Type="Tables" Schema="mydb" />
+    <AssociationSet Name="idSong" Association="mydbModel.Store.idSong">
+      <End Role="songinfo" EntitySet="songinfo" />
+      <End Role="playlist_song" EntitySet="playlist_song" />
+    </AssociationSet>
+    <AssociationSet Name="idSongInfo" Association="mydbModel.Store.idSongInfo">
+      <End Role="songinfo" EntitySet="songinfo" />
+      <End Role="userpurchases" EntitySet="userpurchases" />
+    </AssociationSet>
+    <AssociationSet Name="playlistID" Association="mydbModel.Store.playlistID">
+      <End Role="userplaylist" EntitySet="userplaylist" />
+      <End Role="playlist_song" EntitySet="playlist_song" />
+    </AssociationSet>
+    <AssociationSet Name="songAlbumID" Association="mydbModel.Store.songAlbumID">
+      <End Role="songalbum" EntitySet="songalbum" />
+      <End Role="songinfo" EntitySet="songinfo" />
+    </AssociationSet>
+    <AssociationSet Name="songArtist1" Association="mydbModel.Store.songArtist1">
+      <End Role="songartist" EntitySet="songartist" />
+      <End Role="songinfo" EntitySet="songinfo" />
+    </AssociationSet>
+    <AssociationSet Name="uerAddID" Association="mydbModel.Store.uerAddID">
+      <End Role="useraddress" EntitySet="useraddress" />
+      <End Role="userinfo" EntitySet="userinfo" />
+    </AssociationSet>
+    <AssociationSet Name="userCreditCardID" Association="mydbModel.Store.userCreditCardID">
+      <End Role="usercreditcardinfo" EntitySet="usercreditcardinfo" />
+      <End Role="userinfo" EntitySet="userinfo" />
+    </AssociationSet>
+    <AssociationSet Name="userPurchasesID" Association="mydbModel.Store.userPurchasesID">
+      <End Role="userpurchases" EntitySet="userpurchases" />
+      <End Role="userinfo" EntitySet="userinfo" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="playlist_song">
+    <Key>
+      <PropertyRef Name="userplaylistID" />
+      <PropertyRef Name="idSongInfo" />
+    </Key>
+    <Property Name="userplaylistID" Type="int" Nullable="false" />
+    <Property Name="idSongInfo" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="songalbum">
+    <Key>
+      <PropertyRef Name="songAlbumID" />
+    </Key>
+    <Property Name="songAlbumID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="songAlbumName" Type="varchar" MaxLength="45" />
+    <Property Name="songAlbumLabel" Type="varchar" MaxLength="45" />
+    <Property Name="songAlbumYear" Type="varchar" MaxLength="45" />
+  </EntityType>
+  <EntityType Name="songartist">
+    <Key>
+      <PropertyRef Name="songArtistID" />
+    </Key>
+    <Property Name="songArtistID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="ArtistName" Type="varchar" MaxLength="45" />
+    <Property Name="ArtistLabel" Type="varchar" MaxLength="45" />
+  </EntityType>
+  <EntityType Name="songinfo">
+    <Key>
+      <PropertyRef Name="idSongInfo" />
+    </Key>
+    <Property Name="idSongInfo" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Title" Type="varchar" Nullable="false" MaxLength="45" />
+    <Property Name="Artist" Type="int" />
+    <Property Name="Genre" Type="varchar" MaxLength="45" />
+    <Property Name="Album" Type="int" />
+    <Property Name="Location" Type="varchar" MaxLength="45" />
+    <Property Name="AlbumTrack" Type="int" />
+    <Property Name="Year" Type="int" />
+    <Property Name="Comment" Type="varchar" MaxLength="45" />
+    <Property Name="PlayCount" Type="int" />
+    <Property Name="BPM" Type="int" />
+  </EntityType>
+  <EntityType Name="useraddress">
+    <Key>
+      <PropertyRef Name="userAddID" />
+    </Key>
+    <Property Name="userAddID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="userStreet" Type="varchar" MaxLength="45" />
+    <Property Name="userCity" Type="varchar" MaxLength="45" />
+    <Property Name="userState" Type="varchar" MaxLength="45" />
+    <Property Name="userZip" Type="varchar" MaxLength="45" />
+    <Property Name="userCountry" Type="varchar" MaxLength="45" />
+  </EntityType>
+  <EntityType Name="usercreditcardinfo">
+    <Key>
+      <PropertyRef Name="userCreditCardID" />
+    </Key>
+    <Property Name="userCreditCardID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="userCardType" Type="varchar" MaxLength="45" />
+    <Property Name="userCreditCardNumber" Type="varchar" MaxLength="100" />
+    <Property Name="userCardExpDate" Type="char" MaxLength="7" />
+    <Property Name="userCardCCV" Type="int" />
+    <Property Name="userCardName" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="userinfo">
+    <Key>
+      <PropertyRef Name="iduserInfo" />
+    </Key>
+    <Property Name="iduserInfo" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="userFirstName" Type="varchar" MaxLength="45" />
+    <Property Name="userLastName" Type="varchar" MaxLength="45" />
+    <Property Name="userAddID" Type="int" />
+    <Property Name="userPurchasesID" Type="int" />
+    <Property Name="userEmail" Type="varchar" MaxLength="100" />
+    <Property Name="userCreditCardID" Type="int" />
+    <Property Name="userPhoneNumber" Type="varchar" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="userplaylist">
+    <Key>
+      <PropertyRef Name="userplaylistID" />
+    </Key>
+    <Property Name="userplaylistID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="userplaylistNAME" Type="varchar" MaxLength="45" />
+  </EntityType>
+  <EntityType Name="userpurchases">
+    <Key>
+      <PropertyRef Name="userPurchasesID" />
+    </Key>
+    <Property Name="userPurchasesID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="idSongInfo" Type="int" />
+  </EntityType>
+  <Association Name="idSong">
+    <End Role="songinfo" Type="mydbModel.Store.songinfo" Multiplicity="1" />
+    <End Role="playlist_song" Type="mydbModel.Store.playlist_song" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="songinfo">
+        <PropertyRef Name="idSongInfo" />
+      </Principal>
+      <Dependent Role="playlist_song">
+        <PropertyRef Name="idSongInfo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="idSongInfo">
+    <End Role="songinfo" Type="mydbModel.Store.songinfo" Multiplicity="0..1" />
+    <End Role="userpurchases" Type="mydbModel.Store.userpurchases" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="songinfo">
+        <PropertyRef Name="idSongInfo" />
+      </Principal>
+      <Dependent Role="userpurchases">
+        <PropertyRef Name="idSongInfo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="playlistID">
+    <End Role="userplaylist" Type="mydbModel.Store.userplaylist" Multiplicity="1" />
+    <End Role="playlist_song" Type="mydbModel.Store.playlist_song" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="userplaylist">
+        <PropertyRef Name="userplaylistID" />
+      </Principal>
+      <Dependent Role="playlist_song">
+        <PropertyRef Name="userplaylistID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="songAlbumID">
+    <End Role="songalbum" Type="mydbModel.Store.songalbum" Multiplicity="0..1" />
+    <End Role="songinfo" Type="mydbModel.Store.songinfo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="songalbum">
+        <PropertyRef Name="songAlbumID" />
+      </Principal>
+      <Dependent Role="songinfo">
+        <PropertyRef Name="Album" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="songArtist1">
+    <End Role="songartist" Type="mydbModel.Store.songartist" Multiplicity="0..1" />
+    <End Role="songinfo" Type="mydbModel.Store.songinfo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="songartist">
+        <PropertyRef Name="songArtistID" />
+      </Principal>
+      <Dependent Role="songinfo">
+        <PropertyRef Name="Artist" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="uerAddID">
+    <End Role="useraddress" Type="mydbModel.Store.useraddress" Multiplicity="0..1" />
+    <End Role="userinfo" Type="mydbModel.Store.userinfo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="useraddress">
+        <PropertyRef Name="userAddID" />
+      </Principal>
+      <Dependent Role="userinfo">
+        <PropertyRef Name="userAddID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="userCreditCardID">
+    <End Role="usercreditcardinfo" Type="mydbModel.Store.usercreditcardinfo" Multiplicity="0..1" />
+    <End Role="userinfo" Type="mydbModel.Store.userinfo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="usercreditcardinfo">
+        <PropertyRef Name="userCreditCardID" />
+      </Principal>
+      <Dependent Role="userinfo">
+        <PropertyRef Name="userCreditCardID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="userPurchasesID">
+    <End Role="userpurchases" Type="mydbModel.Store.userpurchases" Multiplicity="0..1" />
+    <End Role="userinfo" Type="mydbModel.Store.userinfo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="userpurchases">
+        <PropertyRef Name="userPurchasesID" />
+      </Principal>
+      <Dependent Role="userinfo">
+        <PropertyRef Name="userPurchasesID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

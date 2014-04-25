@@ -2,11 +2,13 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MySql.Data.MySqlClient;
 
 namespace backleft_music_UI
 {
@@ -15,6 +17,7 @@ namespace backleft_music_UI
         mydbDataSet db;
         string songName;
         int songID;
+        MySqlConnection connection;
 
         public form2()
         {
@@ -65,16 +68,73 @@ namespace backleft_music_UI
                     }
                 }
             }
-
+            allFilled = true;
             if (allFilled)
             {
                 User user;
-                var sql = string.Format("SELECT * FROM userinfo WHERE iduserInfo = {0}", 1);
-                //var connectionString = "server=champlainmysql.cabect4hsdzs.us-east-1.rds.amazonaws.com;user id=BackLeft;password=Champlain123;persistsecurityinfo=True;database=mydb";
+                
+               // var sql = string.Format("SELECT *");
                 var connectionString = "Server = champlainmysql.cabect4hsdzs.us-east-1.rds.amazonaws.com; Database = mydb; Uid = BackLeft; Pwd = Champlain123;";
-                var command = new System.Data.SqlClient.SqlCommand(sql, new System.Data.SqlClient.SqlConnection(connectionString));
+               connection = new MySqlConnection(connectionString);
+               var sql = new MySqlCommand("SELECT * FROM userinfo WHERE iduserInfo = 1", connection);
 
-                using (var connection = command.Connection)
+            //   try
+               {
+                   connection.Open();
+
+                   using (MySqlDataReader reader = sql.ExecuteReader())
+                   {
+                       reader.Read();
+
+                       user = new User()
+                       {
+                           firstName = reader["userFirstName"].ToString(),
+                           lastName = reader["userLastName"].ToString(),
+                           email = reader["userEmail"].ToString(),
+                           phoneNumber = reader["userPhoneNumber"].ToString()
+                       };
+                     
+                       Console.WriteLine("Name: " + user.firstName);
+                   }
+                   user.purchasesID = 1;
+                   string sql2 = "INSERT INTO userpurchases (userPurchasesID, idSongInfo) VALUES('1', '3')";
+                   //open connection
+                  // if (connection.Open() == true)
+                  // {
+                       //create command and assign the query and connection from the constructor
+                       MySqlCommand cmd = new MySqlCommand(sql2, connection);
+
+                       //Execute command
+                       cmd.ExecuteNonQuery();
+
+                       
+                       //close connection
+                      // this.CloseConnection();
+             //      }
+
+               }
+               //catch (MySqlException ex)
+               //{
+               //    //When handling errors, you can your application's response based 
+               //    //on the error number.
+               //    //The two most common error numbers when connecting are as follows:
+               //    //0: Cannot connect to server.
+               //    //1045: Invalid user name and/or password.
+               //    switch (ex.Number)
+               //    {
+               //        case 0:
+               //            MessageBox.Show("Cannot connect to server.  Contact administrator");
+               //            break;
+
+               //        case 1045:
+               //            MessageBox.Show("Invalid username/password, please try again");
+               //            break;
+               //    }
+               //}
+
+               
+
+               /* using (var connection = command.Connection)
                 {
                     connection.Open();
 
@@ -106,9 +166,9 @@ namespace backleft_music_UI
                     connection.Open();
                     command.ExecuteNonQuery();
                     connection.Close();
-                }
+                }*/
 
-                //var user =
+               //var user =
                     //(from c in db.userinfo
                      //where c.iduserInfo == 1 // TODO: fix this (userID)
                      //select c).First();
@@ -116,6 +176,7 @@ namespace backleft_music_UI
                 // TODO: add song to user's prurchases table.
 
                 //ALMOST THERE?//db.userpurchases.AdduserpurchasesRow(
+               connection.Close();
                 this.Close();
             }
         }

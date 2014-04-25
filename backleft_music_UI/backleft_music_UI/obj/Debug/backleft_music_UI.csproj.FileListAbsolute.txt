@@ -46,3 +46,17 @@ C:\Users\joseph.caruso\Desktop\MusicDatabase\backleft_music_UI\backleft_music_UI
 C:\Users\joseph.caruso\Desktop\MusicDatabase\backleft_music_UI\backleft_music_UI\obj\Debug\backleft_music_UI.Form3.resources
 C:\Users\joseph.caruso\Desktop\MusicDatabase\backleft_music_UI\backleft_music_UI\obj\Debug\backleft_music_UI.Properties.Resources.resources
 C:\Users\joseph.caruso\Desktop\MusicDatabase\backleft_music_UI\backleft_music_UI\obj\Debug\backleft_music_UI.csproj.GenerateResource.Cache
+C:\Users\alexander.martens\Desktop\MusicDatabase\trunk\backleft_music_UI\backleft_music_UI\bin\Debug\backleft_music_UI.exe.config
+C:\Users\alexander.martens\Desktop\MusicDatabase\trunk\backleft_music_UI\backleft_music_UI\obj\Debug\backleft_music_UI.exe
+C:\Users\alexander.martens\Desktop\MusicDatabase\trunk\backleft_music_UI\backleft_music_UI\obj\Debug\backleft_music_UI.pdb
+C:\Users\alexander.martens\Desktop\MusicDatabase\trunk\backleft_music_UI\backleft_music_UI\obj\Debug\backleft_music_UI.csprojResolveAssemblyReference.cache
+C:\Users\alexander.martens\Desktop\MusicDatabase\trunk\backleft_music_UI\backleft_music_UI\obj\Debug\backleft_music_UI.libForm.resources
+C:\Users\alexander.martens\Desktop\MusicDatabase\trunk\backleft_music_UI\backleft_music_UI\obj\Debug\backleft_music_UI.form2.resources
+C:\Users\alexander.martens\Desktop\MusicDatabase\trunk\backleft_music_UI\backleft_music_UI\obj\Debug\backleft_music_UI.Form3.resources
+C:\Users\alexander.martens\Desktop\MusicDatabase\trunk\backleft_music_UI\backleft_music_UI\obj\Debug\backleft_music_UI.Properties.Resources.resources
+C:\Users\alexander.martens\Desktop\MusicDatabase\trunk\backleft_music_UI\backleft_music_UI\obj\Debug\backleft_music_UI.csproj.GenerateResource.Cache
+C:\Users\alexander.martens\Desktop\MusicDatabase\trunk\backleft_music_UI\backleft_music_UI\bin\Debug\backleft_music_UI.exe
+C:\Users\alexander.martens\Desktop\MusicDatabase\trunk\backleft_music_UI\backleft_music_UI\bin\Debug\backleft_music_UI.pdb
+C:\Users\alexander.martens\Desktop\MusicDatabase\trunk\backleft_music_UI\backleft_music_UI\bin\Debug\EntityFramework.dll
+C:\Users\alexander.martens\Desktop\MusicDatabase\trunk\backleft_music_UI\backleft_music_UI\bin\Debug\EntityFramework.xml
+C:\Users\alexander.martens\Desktop\MusicDatabase\trunk\backleft_music_UI\backleft_music_UI\bin\Debug\MySql.Data.Entity.EF6.dll

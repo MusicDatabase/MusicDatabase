@@ -1,0 +1,103 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="mydbModelStoreContainer" CdmEntityContainer="mydbEntities">
+    <EntitySetMapping Name="songalbums">
+      <EntityTypeMapping TypeName="mydbModel.songalbum">
+        <MappingFragment StoreEntitySet="songalbum">
+          <ScalarProperty Name="songAlbumID" ColumnName="songAlbumID" />
+          <ScalarProperty Name="songAlbumName" ColumnName="songAlbumName" />
+          <ScalarProperty Name="songAlbumLabel" ColumnName="songAlbumLabel" />
+          <ScalarProperty Name="songAlbumYear" ColumnName="songAlbumYear" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="songartists">
+      <EntityTypeMapping TypeName="mydbModel.songartist">
+        <MappingFragment StoreEntitySet="songartist">
+          <ScalarProperty Name="songArtistID" ColumnName="songArtistID" />
+          <ScalarProperty Name="ArtistName" ColumnName="ArtistName" />
+          <ScalarProperty Name="ArtistLabel" ColumnName="ArtistLabel" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="songinfoes">
+      <EntityTypeMapping TypeName="mydbModel.songinfo">
+        <MappingFragment StoreEntitySet="songinfo">
+          <ScalarProperty Name="idSongInfo" ColumnName="idSongInfo" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Artist" ColumnName="Artist" />
+          <ScalarProperty Name="Genre" ColumnName="Genre" />
+          <ScalarProperty Name="Album" ColumnName="Album" />
+          <ScalarProperty Name="Location" ColumnName="Location" />
+          <ScalarProperty Name="AlbumTrack" ColumnName="AlbumTrack" />
+          <ScalarProperty Name="Year" ColumnName="Year" />
+          <ScalarProperty Name="Comment" ColumnName="Comment" />
+          <ScalarProperty Name="PlayCount" ColumnName="PlayCount" />
+          <ScalarProperty Name="BPM" ColumnName="BPM" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="useraddresses">
+      <EntityTypeMapping TypeName="mydbModel.useraddress">
+        <MappingFragment StoreEntitySet="useraddress">
+          <ScalarProperty Name="userAddID" ColumnName="userAddID" />
+          <ScalarProperty Name="userStreet" ColumnName="userStreet" />
+          <ScalarProperty Name="userCity" ColumnName="userCity" />
+          <ScalarProperty Name="userState" ColumnName="userState" />
+          <ScalarProperty Name="userZip" ColumnName="userZip" />
+          <ScalarProperty Name="userCountry" ColumnName="userCountry" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="usercreditcardinfoes">
+      <EntityTypeMapping TypeName="mydbModel.usercreditcardinfo">
+        <MappingFragment StoreEntitySet="usercreditcardinfo">
+          <ScalarProperty Name="userCreditCardID" ColumnName="userCreditCardID" />
+          <ScalarProperty Name="userCardType" ColumnName="userCardType" />
+          <ScalarProperty Name="userCreditCardNumber" ColumnName="userCreditCardNumber" />
+          <ScalarProperty Name="userCardExpDate" ColumnName="userCardExpDate" />
+          <ScalarProperty Name="userCardCCV" ColumnName="userCardCCV" />
+          <ScalarProperty Name="userCardName" ColumnName="userCardName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="userinfoes">
+      <EntityTypeMapping TypeName="mydbModel.userinfo">
+        <MappingFragment StoreEntitySet="userinfo">
+          <ScalarProperty Name="iduserInfo" ColumnName="iduserInfo" />
+          <ScalarProperty Name="userFirstName" ColumnName="userFirstName" />
+          <ScalarProperty Name="userLastName" ColumnName="userLastName" />
+          <ScalarProperty Name="userAddID" ColumnName="userAddID" />
+          <ScalarProperty Name="userPurchasesID" ColumnName="userPurchasesID" />
+          <ScalarProperty Name="userEmail" ColumnName="userEmail" />
+          <ScalarProperty Name="userCreditCardID" ColumnName="userCreditCardID" />
+          <ScalarProperty Name="userPhoneNumber" ColumnName="userPhoneNumber" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="userplaylists">
+      <EntityTypeMapping TypeName="mydbModel.userplaylist">
+        <MappingFragment StoreEntitySet="userplaylist">
+          <ScalarProperty Name="userplaylistID" ColumnName="userplaylistID" />
+          <ScalarProperty Name="userplaylistNAME" ColumnName="userplaylistNAME" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="userpurchases">
+      <EntityTypeMapping TypeName="mydbModel.userpurchas">
+        <MappingFragment StoreEntitySet="userpurchases">
+          <ScalarProperty Name="userPurchasesID" ColumnName="userPurchasesID" />
+          <ScalarProperty Name="idSongInfo" ColumnName="idSongInfo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="playlist_song" TypeName="mydbModel.playlist_song" StoreEntitySet="playlist_song">
+      <EndProperty Name="songinfo">
+        <ScalarProperty Name="idSongInfo" ColumnName="idSongInfo" />
+      </EndProperty>
+      <EndProperty Name="userplaylist">
+        <ScalarProperty Name="userplaylistID" ColumnName="userplaylistID" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping>
