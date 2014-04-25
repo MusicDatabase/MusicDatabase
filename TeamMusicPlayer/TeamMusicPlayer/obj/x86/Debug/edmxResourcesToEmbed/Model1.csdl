@@ -1,0 +1,177 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="mydbModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+  <EntityContainer Name="mydbEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="songalbums" EntityType="mydbModel.songalbum" />
+    <EntitySet Name="songartists" EntityType="mydbModel.songartist" />
+    <EntitySet Name="songinfoes" EntityType="mydbModel.songinfo" />
+    <EntitySet Name="useraddresses" EntityType="mydbModel.useraddress" />
+    <EntitySet Name="usercreditcardinfoes" EntityType="mydbModel.usercreditcardinfo" />
+    <EntitySet Name="userinfoes" EntityType="mydbModel.userinfo" />
+    <EntitySet Name="userplaylists" EntityType="mydbModel.userplaylist" />
+    <EntitySet Name="userpurchases" EntityType="mydbModel.userpurchas" />
+    <AssociationSet Name="idSongInfo" Association="mydbModel.idSongInfo">
+      <End Role="songinfo" EntitySet="songinfoes" />
+      <End Role="userpurchases" EntitySet="userpurchases" />
+    </AssociationSet>
+    <AssociationSet Name="uerAddID" Association="mydbModel.uerAddID">
+      <End Role="useraddress" EntitySet="useraddresses" />
+      <End Role="userinfo" EntitySet="userinfoes" />
+    </AssociationSet>
+    <AssociationSet Name="userCreditCardID" Association="mydbModel.userCreditCardID">
+      <End Role="usercreditcardinfo" EntitySet="usercreditcardinfoes" />
+      <End Role="userinfo" EntitySet="userinfoes" />
+    </AssociationSet>
+    <AssociationSet Name="userPurchasesID" Association="mydbModel.userPurchasesID">
+      <End Role="userpurchases" EntitySet="userpurchases" />
+      <End Role="userinfo" EntitySet="userinfoes" />
+    </AssociationSet>
+    <AssociationSet Name="playlist_song" Association="mydbModel.playlist_song">
+      <End Role="songinfo" EntitySet="songinfoes" />
+      <End Role="userplaylist" EntitySet="userplaylists" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="songalbum">
+    <Key>
+      <PropertyRef Name="songAlbumID" />
+    </Key>
+    <Property Name="songAlbumID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="songAlbumName" Type="String" MaxLength="45" Unicode="false" FixedLength="false" />
+    <Property Name="songAlbumLabel" Type="String" MaxLength="45" Unicode="false" FixedLength="false" />
+    <Property Name="songAlbumYear" Type="String" MaxLength="45" Unicode="false" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="songartist">
+    <Key>
+      <PropertyRef Name="songArtistID" />
+    </Key>
+    <Property Name="songArtistID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ArtistName" Type="String" MaxLength="45" Unicode="false" FixedLength="false" />
+    <Property Name="ArtistLabel" Type="String" MaxLength="45" Unicode="false" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="songinfo">
+    <Key>
+      <PropertyRef Name="idSongInfo" />
+    </Key>
+    <Property Name="idSongInfo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Title" Type="String" Nullable="false" MaxLength="45" Unicode="false" FixedLength="false" />
+    <Property Name="Artist" Type="String" MaxLength="45" Unicode="false" FixedLength="false" />
+    <Property Name="Genre" Type="String" MaxLength="45" Unicode="false" FixedLength="false" />
+    <Property Name="Album" Type="String" MaxLength="45" Unicode="false" FixedLength="false" />
+    <Property Name="Location" Type="String" MaxLength="45" Unicode="false" FixedLength="false" />
+    <Property Name="AlbumTrack" Type="Int32" />
+    <Property Name="Year" Type="Int32" />
+    <Property Name="Comment" Type="String" MaxLength="45" Unicode="false" FixedLength="false" />
+    <Property Name="PlayCount" Type="Int32" />
+    <Property Name="BPM" Type="Int32" />
+    <NavigationProperty Name="userpurchases" Relationship="mydbModel.idSongInfo" FromRole="songinfo" ToRole="userpurchases" />
+    <NavigationProperty Name="userplaylists" Relationship="mydbModel.playlist_song" FromRole="songinfo" ToRole="userplaylist" />
+  </EntityType>
+  <EntityType Name="useraddress">
+    <Key>
+      <PropertyRef Name="userAddID" />
+    </Key>
+    <Property Name="userAddID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="userStreet" Type="String" MaxLength="45" Unicode="false" FixedLength="false" />
+    <Property Name="userCity" Type="String" MaxLength="45" Unicode="false" FixedLength="false" />
+    <Property Name="userState" Type="String" MaxLength="45" Unicode="false" FixedLength="false" />
+    <Property Name="userZip" Type="String" MaxLength="45" Unicode="false" FixedLength="false" />
+    <Property Name="userCountry" Type="String" MaxLength="45" Unicode="false" FixedLength="false" />
+    <NavigationProperty Name="userinfoes" Relationship="mydbModel.uerAddID" FromRole="useraddress" ToRole="userinfo" />
+  </EntityType>
+  <EntityType Name="usercreditcardinfo">
+    <Key>
+      <PropertyRef Name="userCreditCardID" />
+    </Key>
+    <Property Name="userCreditCardID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="userCardType" Type="String" MaxLength="45" Unicode="false" FixedLength="false" />
+    <Property Name="userCreditCardNumber" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+    <Property Name="userCardExpDate" Type="String" MaxLength="7" Unicode="false" FixedLength="false" />
+    <Property Name="userCardCCV" Type="Int32" />
+    <Property Name="userCardName" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+    <NavigationProperty Name="userinfoes" Relationship="mydbModel.userCreditCardID" FromRole="usercreditcardinfo" ToRole="userinfo" />
+  </EntityType>
+  <EntityType Name="userinfo">
+    <Key>
+      <PropertyRef Name="iduserInfo" />
+    </Key>
+    <Property Name="iduserInfo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="userFirstName" Type="String" MaxLength="45" Unicode="false" FixedLength="false" />
+    <Property Name="userLastName" Type="String" MaxLength="45" Unicode="false" FixedLength="false" />
+    <Property Name="userAddID" Type="Int32" />
+    <Property Name="userPurchasesID" Type="Int32" />
+    <Property Name="userEmail" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+    <Property Name="userCreditCardID" Type="Int32" />
+    <Property Name="userPhoneNumber" Type="String" MaxLength="10" Unicode="false" FixedLength="false" />
+    <NavigationProperty Name="useraddress" Relationship="mydbModel.uerAddID" FromRole="userinfo" ToRole="useraddress" />
+    <NavigationProperty Name="usercreditcardinfo" Relationship="mydbModel.userCreditCardID" FromRole="userinfo" ToRole="usercreditcardinfo" />
+    <NavigationProperty Name="userpurchas" Relationship="mydbModel.userPurchasesID" FromRole="userinfo" ToRole="userpurchases" />
+  </EntityType>
+  <EntityType Name="userplaylist">
+    <Key>
+      <PropertyRef Name="userplaylistID" />
+    </Key>
+    <Property Name="userplaylistID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="userplaylistNAME" Type="String" MaxLength="45" Unicode="false" FixedLength="false" />
+    <NavigationProperty Name="songinfoes" Relationship="mydbModel.playlist_song" FromRole="userplaylist" ToRole="songinfo" />
+  </EntityType>
+  <EntityType Name="userpurchas">
+    <Key>
+      <PropertyRef Name="userPurchasesID" />
+    </Key>
+    <Property Name="userPurchasesID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="idSongInfo" Type="Int32" />
+    <NavigationProperty Name="songinfo" Relationship="mydbModel.idSongInfo" FromRole="userpurchases" ToRole="songinfo" />
+    <NavigationProperty Name="userinfoes" Relationship="mydbModel.userPurchasesID" FromRole="userpurchases" ToRole="userinfo" />
+  </EntityType>
+  <Association Name="idSongInfo">
+    <End Role="songinfo" Type="mydbModel.songinfo" Multiplicity="0..1" />
+    <End Role="userpurchases" Type="mydbModel.userpurchas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="songinfo">
+        <PropertyRef Name="idSongInfo" />
+      </Principal>
+      <Dependent Role="userpurchases">
+        <PropertyRef Name="idSongInfo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="uerAddID">
+    <End Role="useraddress" Type="mydbModel.useraddress" Multiplicity="0..1" />
+    <End Role="userinfo" Type="mydbModel.userinfo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="useraddress">
+        <PropertyRef Name="userAddID" />
+      </Principal>
+      <Dependent Role="userinfo">
+        <PropertyRef Name="userAddID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="userCreditCardID">
+    <End Role="usercreditcardinfo" Type="mydbModel.usercreditcardinfo" Multiplicity="0..1" />
+    <End Role="userinfo" Type="mydbModel.userinfo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="usercreditcardinfo">
+        <PropertyRef Name="userCreditCardID" />
+      </Principal>
+      <Dependent Role="userinfo">
+        <PropertyRef Name="userCreditCardID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="userPurchasesID">
+    <End Role="userpurchases" Type="mydbModel.userpurchas" Multiplicity="0..1" />
+    <End Role="userinfo" Type="mydbModel.userinfo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="userpurchases">
+        <PropertyRef Name="userPurchasesID" />
+      </Principal>
+      <Dependent Role="userinfo">
+        <PropertyRef Name="userPurchasesID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="playlist_song">
+    <End Role="songinfo" Type="mydbModel.songinfo" Multiplicity="*" />
+    <End Role="userplaylist" Type="mydbModel.userplaylist" Multiplicity="*" />
+  </Association>
+</Schema>

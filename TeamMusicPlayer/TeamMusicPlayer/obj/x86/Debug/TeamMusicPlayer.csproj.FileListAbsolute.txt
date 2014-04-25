@@ -10,3 +10,9 @@ C:\Users\joseph.caruso\Desktop\MusicDatabase\TeamMusicPlayer\TeamMusicPlayer\bin
 C:\Users\joseph.caruso\Desktop\MusicDatabase\TeamMusicPlayer\TeamMusicPlayer\obj\x86\Debug\TeamMusicPlayer.exe
 C:\Users\joseph.caruso\Desktop\MusicDatabase\TeamMusicPlayer\TeamMusicPlayer\obj\x86\Debug\TeamMusicPlayer.pdb
 C:\Users\joseph.caruso\Desktop\MusicDatabase\TeamMusicPlayer\TeamMusicPlayer\obj\x86\Debug\TeamMusicPlayer.csprojResolveAssemblyReference.cache
+C:\Users\alexander.martens\Desktop\MusicDatabase\trunk\TeamMusicPlayer\TeamMusicPlayer\bin\Debug\TeamMusicPlayer.exe.config
+C:\Users\alexander.martens\Desktop\MusicDatabase\trunk\TeamMusicPlayer\TeamMusicPlayer\bin\Debug\TeamMusicPlayer.exe
+C:\Users\alexander.martens\Desktop\MusicDatabase\trunk\TeamMusicPlayer\TeamMusicPlayer\bin\Debug\TeamMusicPlayer.pdb
+C:\Users\alexander.martens\Desktop\MusicDatabase\trunk\TeamMusicPlayer\TeamMusicPlayer\obj\x86\Debug\TeamMusicPlayer.csprojResolveAssemblyReference.cache
+C:\Users\alexander.martens\Desktop\MusicDatabase\trunk\TeamMusicPlayer\TeamMusicPlayer\obj\x86\Debug\TeamMusicPlayer.exe
+C:\Users\alexander.martens\Desktop\MusicDatabase\trunk\TeamMusicPlayer\TeamMusicPlayer\obj\x86\Debug\TeamMusicPlayer.pdb

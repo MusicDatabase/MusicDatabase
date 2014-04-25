@@ -78,7 +78,6 @@ namespace backleft_music_UI
                connection = new MySqlConnection(connectionString);
                var sql = new MySqlCommand("SELECT * FROM userinfo WHERE iduserInfo = 1", connection);
 
-            //   try
                {
                    connection.Open();
 
@@ -91,13 +90,16 @@ namespace backleft_music_UI
                            firstName = reader["userFirstName"].ToString(),
                            lastName = reader["userLastName"].ToString(),
                            email = reader["userEmail"].ToString(),
-                           phoneNumber = reader["userPhoneNumber"].ToString()
+                           phoneNumber = reader["userPhoneNumber"].ToString(),
+                           addressID = (int)reader["userAddID"],
+                           purchasesID = (int)reader["userPurchasesID"],
+                           creditCardID = (int)reader["userCreditCardID"],
+                           userID = (int)reader["iduserInfo"]
                        };
                      
                        Console.WriteLine("Name: " + user.firstName);
                    }
-                   user.purchasesID = 1;
-                   string sql2 = "INSERT INTO userpurchases (userPurchasesID, idSongInfo) VALUES('1', '3')";
+                   string sql2 = "INSERT INTO userpurchases (userPurchasesID, idSongInfo) VALUES('user.purchasesID', 'songID')";
                    //open connection
                   // if (connection.Open() == true)
                   // {

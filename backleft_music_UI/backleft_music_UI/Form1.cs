@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MySql.Data.MySqlClient;
 
 namespace backleft_music_UI
 {
@@ -19,6 +20,10 @@ namespace backleft_music_UI
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'mydbDataSet1.song_view' table. You can move, or remove it, as needed.
+            this.song_viewTableAdapter1.Fill(this.mydbDataSet1.song_view);
+            // TODO: This line of code loads data into the 'mydbDataSet1.userpurchase_view' table. You can move, or remove it, as needed.
+            this.userpurchase_viewTableAdapter.Fill(this.mydbDataSet1.userpurchase_view);
             // TODO: This line of code loads data into the 'mydbDataSet.song_view' table. You can move, or remove it, as needed.
             this.song_viewTableAdapter.Fill(this.mydbDataSet.song_view);
             // TODO: This line of code loads data into the 'mydbDataSet.userpurchases' table. You can move, or remove it, as needed.
@@ -84,9 +89,63 @@ namespace backleft_music_UI
         private void loginButton_Click(object sender, EventArgs e)
         {
             string email = loginTextBox.Text;
+            
+            User user;
 
-            var form = new Form3(email);
-            form.Show();
+            // var sql = string.Format("SELECT *");
+            var connectionString = "Server = champlainmysql.cabect4hsdzs.us-east-1.rds.amazonaws.com; Database = mydb; Uid = BackLeft; Pwd = Champlain123;";
+            MySqlConnection connection = new MySqlConnection(connectionString);
+            //var sql = new MySqlCommand("SELECT * FROM userinfo WHERE iduserInfo = 1", connection);
+            var sql2 = new MySqlCommand("SELECT * FROM userinfo WHERE userEmail = 'email'", connection);
+            //var sql3 =  new MySqlCommand("select exists (select * from userinfo where userEmail = 'email')", connection);
+            //string sql3 = "select exists (select * from userinfo where userEmail = 'email')";
+            //var sql4 = new MySqlCommand("Select Case count(iduserinfo) when 1 then true else false end From mydb.userinfo Where userEmail = 'email'", connection);
+
+            connection.Open();
+
+            //MySqlDataReader reader = (MySqlCommand)sql3.ExecuteReader();
+           // reader.Read();
+           // reader.GetBoolean(0);
+
+
+            using (MySqlDataReader reader = sql2.ExecuteReader())
+            {
+                reader.Read();
+                if (reader.IsDBNull(0))
+                {
+                    Console.WriteLine("Yo!");
+                }
+
+                user = new User()
+                    {
+                        firstName = reader["userFirstName"].ToString(),
+                        lastName = reader["userLastName"].ToString(),
+                        email = reader["userEmail"].ToString(),
+                        phoneNumber = reader["userPhoneNumber"].ToString(),
+                        addressID = (int)reader["userAddID"],
+                        purchasesID = (int)reader["userPurchasesID"],
+                        creditCardID = (int)reader["userCreditCardID"],
+                        userID = (int)reader["iduserInfo"]
+                    };  
+
+                if (user.firstName != null)
+                {
+                    Console.WriteLine("HE EXISTS!");
+                }
+                else
+                {
+                    var form = new Form3(email);
+                    form.Show();
+                }
+
+
+            }
+         
+
+
+
+            connection.Close();
+        
         }
 
         private void song_viewDataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
